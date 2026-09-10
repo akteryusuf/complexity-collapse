@@ -4,7 +4,7 @@ Lecture notes on a proposed law relating structural complexity to energetic
 variation, **K = 1/&Delta;E** — its geometry on an infinite funnel, the
 finite-time collapse it implies, and the places the derivation does not hold.
 
-By **Prof. Peter Copf**.
+By **Dr. Peter Copf**.
 
 ## Read it
 

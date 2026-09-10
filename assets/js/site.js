@@ -19,7 +19,7 @@
    ───────────────────────────────────────────────────────────── */
 window.SITE = {
   professor: {
-    honorific: "Prof.",
+    honorific: "Dr.",
     firstName: "Peter",
     surname: "Copf",
     affiliation: "Author of the complexity–energy proposal",
