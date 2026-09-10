@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Complexity Collapse</title>
+<meta name="description" content="A lecture on the proposed law K = 1/ΔE — how a system's structural complexity, mapped onto an infinite funnel, performs its own work and falls in finite time into deterministic chaos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["$$", "$$"]],
+      processEscapes: true
+    },
+    options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] },
+    svg: { fontCache: "global" }
+  };
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#lecture" data-i18n="ui.skip">Skip to the lecture</a>
+
+<div class="shell">
+
+  <!-- ══════════════════ MASTHEAD ══════════════════ -->
+  <header class="masthead">
+    <p class="eyebrow">
+      <span data-i18n="mast.span1">Lecture Notes</span>
+      <span class="sep">/</span>
+      <span data-i18n="mast.span2">Non-Equilibrium Systems</span>
+      <span class="sep">/</span>
+      <span class="dim" data-i18n="mast.span3">Working paper &middot; unrefereed</span>
+      <nav class="lang-switch" data-i18n-aria="ui.langNav" aria-label="Language"></nav>
+    </p>
+
+    <h1 data-i18n="mast.h11">The Complexity Collapse, or <em>how order spends itself to move</em></h1>
+
+    <p class="standfirst" data-i18n="mast.p1">
+      A single reciprocal law — complexity is the inverse of energetic variation —
+      turns out to describe a well with no floor. Follow it carefully and a system
+      at perfect rest is obliged to consume its own structure in order to fall,
+      and it reaches the bottom in finite time.
+    </p>
+
+    <div class="masthead-law">
+      <span class="lbl" data-i18n="mast.lbl1">The law</span>
+      <span>\( K = \dfrac{1}{\Delta E} \)</span>
+    </div>
+
+    <div class="byline">
+      <img class="avatar" data-prof-photo src="assets/img/professor.svg"
+           data-i18n-alt="mast.alt-portrait" alt="Portrait of the lecturer" width="120" height="120">
+      <div class="byline-text">
+        <p class="name" data-prof-name>Prof. Peter Copf</p>
+        <p class="affil" data-prof-affil>Author of the complexity&ndash;energy proposal</p>
+        <p class="trans-note" data-lang-only="it ru" data-i18n="ui.transNote"></p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ══════════════════ CONTENTS RAIL ══════════════════ -->
+    <nav class="rail" aria-label="Lecture contents">
+      <h2 data-i18n="nav.01">The derivation</h2>
+      <ol>
+        <li><a href="#prologue"><span class="num">00</span><span data-i18n="nav.02">The proposal</span></a></li>
+        <li><a href="#law"><span class="num">01</span><span data-i18n="nav.03">The core law</span></a></li>
+        <li><a href="#geometry"><span class="num">02</span><span data-i18n="nav.04">State space &amp; geometry</span></a></li>
+        <li><a href="#boundaries"><span class="num">03</span><span data-i18n="nav.05">The field&rsquo;s two boundaries</span></a></li>
+        <li><a href="#kinematics"><span class="num">04</span><span data-i18n="nav.06">Potential, work, Lagrangian</span></a></li>
+        <li><a href="#collapse"><span class="num">05</span><span data-i18n="nav.07">Finite-time collapse</span></a></li>
+        <li><a href="#thermo"><span class="num">06</span><span data-i18n="nav.08">Out of equilibrium</span></a></li>
+        <li><a href="#entropy"><span class="num">07</span><span data-i18n="nav.09">Heat &amp; entropy</span></a></li>
+        <li><a href="#mass"><span class="num">08</span><span data-i18n="nav.10">Mass equivalence</span></a></li>
+        <li><a href="#scale"><span class="num">09</span><span data-i18n="nav.11">A sense of scale</span></a></li>
+        <li><a href="#cycle"><span class="num">10</span><span data-i18n="nav.12">The closed cycle</span></a></li>
+        <li><a href="#hourglass"><span class="num">11</span><span data-i18n="nav.13">The hourglass</span></a></li>
+        <li><a href="#model-section"><span class="num">12</span><span data-i18n="nav.14">The model, running</span></a></li>
+        <li><a href="#open"><span class="num">13</span><span data-i18n="nav.15">Open questions</span></a></li>
+        <li><a href="#refs"><span class="num">14</span><span data-i18n="nav.16">References</span></a></li>
+      </ol>
+
+      <div class="rail-prof">
+        <div class="byline">
+          <img class="avatar" data-prof-photo src="assets/img/professor.svg"
+               alt="" width="120" height="120" aria-hidden="true">
+          <div class="byline-text">
+            <p class="name" data-prof-name>Prof. Peter Copf</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ══════════════════ ARTICLE ══════════════════ -->
+    <main class="article" id="lecture">
+
+      <details class="toc-mobile">
+        <summary data-i18n="nav.17">Lecture contents</summary>
+        <ol>
+          <li><a href="#prologue"><span class="num">00</span><span data-i18n="nav.02">The proposal</span></a></li>
+          <li><a href="#law"><span class="num">01</span><span data-i18n="nav.03">The core law</span></a></li>
+          <li><a href="#geometry"><span class="num">02</span><span data-i18n="nav.04">State space &amp; geometry</span></a></li>
+          <li><a href="#boundaries"><span class="num">03</span><span data-i18n="nav.05">The field&rsquo;s two boundaries</span></a></li>
+          <li><a href="#kinematics"><span class="num">04</span><span data-i18n="nav.06">Potential, work, Lagrangian</span></a></li>
+          <li><a href="#collapse"><span class="num">05</span><span data-i18n="nav.07">Finite-time collapse</span></a></li>
+          <li><a href="#thermo"><span class="num">06</span><span data-i18n="nav.08">Out of equilibrium</span></a></li>
+          <li><a href="#entropy"><span class="num">07</span><span data-i18n="nav.09">Heat &amp; entropy</span></a></li>
+          <li><a href="#mass"><span class="num">08</span><span data-i18n="nav.10">Mass equivalence</span></a></li>
+          <li><a href="#scale"><span class="num">09</span><span data-i18n="nav.11">A sense of scale</span></a></li>
+          <li><a href="#cycle"><span class="num">10</span><span data-i18n="nav.12">The closed cycle</span></a></li>
+          <li><a href="#hourglass"><span class="num">11</span><span data-i18n="nav.13">The hourglass</span></a></li>
+          <li><a href="#model-section"><span class="num">12</span><span data-i18n="nav.14">The model, running</span></a></li>
+          <li><a href="#open"><span class="num">13</span><span data-i18n="nav.15">Open questions</span></a></li>
+          <li><a href="#refs"><span class="num">14</span><span data-i18n="nav.16">References</span></a></li>
+        </ol>
+      </details>
+
+      <!-- ───────────── 00 PROLOGUE ───────────── -->
+      <section id="prologue" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">00</span><span class="lbl" data-i18n="prologue.lbl1">Prologue</span></p>
+          <h2 data-i18n="prologue.h21">The proposal, in its own words</h2>
+        </header>
+        <div class="card-body">
+
+        <p class="lead" data-i18n="prologue.p1">
+          This began as a single sentence I wrote about complexity and energy. I
+          did not expect it to go anywhere in particular. Follow it carefully,
+          though, and it ends at an infinite funnel with no floor, a system that
+          moves without being pushed, and a collapse that completes in finite
+          time. Some of it, I have since found, is wrong — which is a far more
+          useful thing to be than vaguely right.
+        </p>
+
+        <p data-i18n="prologue.p2">
+          I want to do two things in these notes. First, build the model out
+          properly: state space, metric, potential, equations of motion,
+          thermodynamics, the lot. Second — and this is the part that matters —
+          show you exactly where it holds and exactly where it breaks, including
+          the places my own arithmetic let me down. A model that survives its own
+          derivation unscathed usually means nobody pushed.
+        </p>
+
+        <div class="proposal">
+          <div class="proposal-head">
+            <span class="tag" data-i18n="prologue.span1">As I first wrote it</span>
+            <span data-i18n="prologue.span2">Theoretical physics proposal</span>
+          </div>
+          <div class="proposal-body">
+            <p data-i18n="prologue.p3">
+              &ldquo;&hellip;a novel conceptual and mathematical framework regarding the
+              thermodynamic behavior of complex, self-organizing systems and the origin
+              of life. Our model maps the structural transition of a life-bearing system
+              from a state of absolute order and maximum complexity into a chaotic,
+              divergent regime.&rdquo;
+            </p>
+            <p data-i18n="prologue.p4">
+              The foundational claim is that complexity is inversely proportional to
+              energetic variation; that this can be drawn as a modified Torricelli
+              trumpet; and that the transition out of stillness is powered not by any
+              external force but by the accumulated complexity performing work on
+              itself. Life, on this reading, is an out-of-equilibrium phase transition
+              that a system ignites from its own stored order.
+            </p>
+          </div>
+        </div>
+
+        <div class="aside-voice">
+          <span class="who" data-i18n="prologue.span3">A word before we start</span>
+          <p data-i18n="prologue.p5">
+            What follows is not the original write-up but the model rebuilt
+            properly, with the mathematics carried through. Where my own arithmetic
+            slipped I have corrected it in place and recorded the correction in
+            <a href="#open">&sect;13</a>, because a derivation you cannot check is
+            not a derivation. I would rather hand you the working than the
+            conclusion.
+          </p>
+        </div>
+        </div>
+      </section>
+
+      <!-- ───────────── 01 THE CORE LAW ───────────── -->
+      <section id="law" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">01</span><span class="lbl" data-i18n="law.lbl1">The core law</span><span class="eqs">eq. 1</span></p>
+          <h2 data-i18n="law.h21">Complexity as a reciprocal</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="law.p1">
+          The whole edifice rests on one statement. Let \(K\) denote the
+          <strong>structural complexity</strong> of a system and \(\Delta E\) its
+          internal <strong>energetic variation</strong> — the spread, not the level,
+          of its energy. The claim is that these are reciprocal:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ K \;=\; \frac{1}{\Delta E} $$</div>
+          <div class="eq-n">(1)</div>
+        </div>
+
+        <p data-i18n="law.p2">
+          Read it as an assertion about information capacity. A system whose energy
+          barely fluctuates is a system whose microstates are sharply distinguished:
+          you can write a great deal into it and expect to read it back. Let the
+          fluctuations grow and the distinctions blur — structure dissolves into
+          noise. In the limit of no variation at all, the system holds unbounded
+          structure and does absolutely nothing. In the limit of unbounded
+          variation, it holds nothing at all.
+        </p>
+
+        <p data-i18n="law.p3">
+          That is the intuition, and it is a respectable one; it has cousins in the
+          fluctuation&ndash;dissipation literature and in the thermodynamics of
+          computation. What makes this proposal distinctive is the decision to treat
+          equation&nbsp;(1) not as an analogy but as a field equation, and then to
+          ask what geometry it implies.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="law.span1">Plate A</span><span class="pt" data-i18n="law.span2">The reciprocal law as a curve</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 620 380" role="img" width="620" height="380"
+                 data-i18n-aria="law.aria1" aria-label="Hyperbola of complexity K against energetic variation delta E z. K falls steeply from very large values near zero variation, passing through the point where both equal one, and flattens toward zero as variation grows. The high-K region is labelled order, the low-K region chaos.">
+
+              <!-- grid -->
+              <g stroke="#1e2b42" stroke-width="1">
+                <path d="M192.5,50V310M315,50V310M437.5,50V310M560,50V310"/>
+                <path d="M70,248.1H560M70,186.2H560M70,124.3H560M70,62.4H560"/>
+              </g>
+
+              <!-- zones -->
+              <rect x="70" y="50" width="122.5" height="200" fill="#0093ba" opacity="0.10"/>
+              <rect x="315" y="250" width="245" height="60" fill="#ff2d6b" opacity="0.10"/>
+
+              <!-- axes -->
+              <g stroke="#64748f" stroke-width="1.5">
+                <path d="M70,310H575"/>
+                <path d="M70,310V45"/>
+              </g>
+
+              <!-- the curve K = 1/dEz -->
+              <path fill="none" stroke="#0093ba" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+                    d="M85.3,62.4 L86.5,80.7 L87.8,96.5 L89.0,110.3 L90.2,122.4 L91.4,133.1 L92.7,142.7 L93.9,151.3 L95.1,159.0 L96.3,166.0 L97.6,172.4 L98.8,178.3 L100.0,183.7 L101.2,188.6 L103.7,197.4 L106.8,206.8 L109.8,214.8 L112.9,221.6 L115.9,227.5 L119.0,232.6 L122.1,237.2 L125.1,241.2 L128.2,244.8 L131.2,248.1 L137.4,253.7 L143.5,258.4 L149.6,262.4 L155.8,265.8 L161.9,268.7 L168.0,271.3 L174.1,273.6 L180.2,275.6 L186.4,277.4 L192.5,279.0 L207.8,282.5 L223.1,285.2 L238.4,287.5 L253.8,289.4 L269.1,291.0 L284.4,292.3 L299.7,293.5 L315.0,294.5 L345.6,296.2 L376.2,297.6 L406.9,298.7 L437.5,299.7 L468.1,300.5 L498.8,301.2 L529.4,301.7 L560.0,302.3"/>
+
+              <!-- the unit point, where K = dEz = 1 -->
+              <circle cx="131.2" cy="248.1" r="5.5" fill="#c08400" stroke="#070b12" stroke-width="2"/>
+
+              <!-- ticks -->
+              <g fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11">
+                <text x="192.5" y="328" text-anchor="middle">2</text>
+                <text x="315" y="328" text-anchor="middle">4</text>
+                <text x="437.5" y="328" text-anchor="middle">6</text>
+                <text x="560" y="328" text-anchor="middle">8</text>
+                <text x="60" y="252" text-anchor="end">1</text>
+                <text x="60" y="190" text-anchor="end">2</text>
+                <text x="60" y="128" text-anchor="end">3</text>
+                <text x="60" y="66" text-anchor="end">4</text>
+              </g>
+
+              <!-- axis titles -->
+              <text x="322" y="352" text-anchor="middle" fill="#93a4bd"
+                    font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="law.svg1">energetic variation &#8710;E&#8338;</text>
+              <text x="26" y="180" text-anchor="middle" fill="#93a4bd" transform="rotate(-90 26 180)"
+                    font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="law.svg2">complexity K</text>
+
+              <!-- zone labels -->
+              <text x="84" y="42" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="11" letter-spacing="1.4" data-i18n="law.svg3">ORDER &#183; K &#8594; &#8734;</text>
+              <text x="556" y="268" text-anchor="end" fill="#ff2d6b"
+                    font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.4" data-i18n="law.svg4">CHAOS &#183; K &#8594; 0</text>
+
+              <!-- callout on the unit point -->
+              <path d="M139,244 L196,214" stroke="#c08400" stroke-width="1.2" fill="none"/>
+              <text x="202" y="211" fill="#c08400" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11">K = &#8710;E&#8338; = 1</text>
+              <text x="202" y="226" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="11.5" data-i18n="law.svg5">the only self-dual state</text>
+            </svg>
+          </div>
+          <figcaption data-i18n="law.figcaption1">
+            <b>Plate A.</b> Equation (1) drawn out. The curve is a rectangular
+            hyperbola, so the two regimes are not symmetric in any useful sense: order
+            is a narrow, steep territory and chaos is a broad, flat one. The single
+            crossing point where \(K = \Delta E_z = 1\) is the only state that is its
+            own reciprocal — everything else in the model is on its way somewhere.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 02 GEOMETRY ───────────── -->
+      <section id="geometry" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">02</span><span class="lbl" data-i18n="geometry.lbl1">State space &amp; geometry</span><span class="eqs">eq. 2&ndash;4</span></p>
+          <h2 data-i18n="geometry.h21">A well built out of the law</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="geometry.p1">
+          To get dynamics we need somewhere for the system to live. Take the base
+          state space of energetic variations to be the punctured plane
+          \(M = \mathbb{R}^2 \setminus \{0\}\), with a point written
+          \(q = (\Delta E_1, \Delta E_2)^{\mathsf T}\) — two independent channels
+          along which the system's energy can vary. In polar coordinates:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ r = \lVert q \rVert = \sqrt{(\Delta E_1)^2 + (\Delta E_2)^2} \in (0,\infty), \qquad \theta = \arctan\!\left(\frac{\Delta E_2}{\Delta E_1}\right) \in [0, 2\pi) $$</div>
+          <div class="eq-n">(2)</div>
+        </div>
+
+        <p data-i18n="geometry.p2">
+          The origin is removed deliberately, and you should keep an eye on it: it is
+          where the whole model will eventually go to die. Over this base we raise a
+          vertical scalar field \(\Delta E_z\), the total combined energetic
+          variation, defined so that it blows up at the centre:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ \Delta E_z(r) \;=\; \frac{3}{\big((\Delta E_1)^2 + (\Delta E_2)^2\big)^{1/4}} \;=\; \frac{3}{r^{1/2}} \;=\; 3\,r^{-1/2} $$</div>
+          <div class="eq-n">(3)</div>
+        </div>
+
+        <p data-i18n="geometry.p3">
+          The quarter-power is the interesting choice. It makes \(\Delta E_z\) decay
+          slowly outward and diverge slowly inward — slowly enough that the surface
+          has finite area over any annulus, steeply enough that it has no floor. This
+          is the <em>modified Torricelli trumpet</em> of my first formulation: an
+          infinite funnel. The constant \(3\) simply sets the scale; nothing below
+          depends on it being three.
+        </p>
+
+        <p data-i18n="geometry.p4">
+          Embedding the surface as \((x,y,z) = (\Delta E_1, \Delta E_2, \Delta E_z)\)
+          in Euclidean space and pulling back the flat metric gives the induced
+          metric. With \(\mathrm{d}z/\mathrm{d}r = -\tfrac{3}{2}r^{-3/2}\):
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \mathrm{d}s^2 \;=\; \mathrm{d}\Delta E_1^2 + \mathrm{d}\Delta E_2^2 + \mathrm{d}(\Delta E_z)^2 \;=\; \left(1 + \frac{9}{4r^{3}}\right)\mathrm{d}r^2 + r^2\,\mathrm{d}\theta^2 $$</div>
+          <div class="eq-n">(4)</div>
+        </div>
+
+        <p data-i18n="geometry.p5">
+          Notice the radial stretch factor. Far out, \(9/4r^3 \to 0\) and the surface
+          is asymptotically flat — a plane. Close in, it diverges: radial distance on
+          the surface runs away from radial distance in the base. The funnel's throat
+          is infinitely deep as measured along the surface, even though it sits over a
+          single missing point of the plane.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="geometry.span1">Plate 1</span><span class="pt" data-i18n="geometry.span2">The conceptual model, as first drawn</span></div>
+          <div class="plate-frame">
+            <img src="assets/img/fig1-funnel.jpg" width="1376" height="768" loading="lazy"
+                 data-i18n-alt="geometry.alt1" alt="Conceptual diagram of a glowing funnel over a base plane. The wide flat rim is labelled periphery, state of maximum complexity, with K tending to infinity and delta E z tending to zero. A line of spheres traces a path down the funnel wall to a bright central collapse labelled state of chaos, where K tends to zero and delta E z diverges. Side panels summarise four stages: periphery, inception, collapse, chaos.">
+          </div>
+          <figcaption data-i18n="geometry.figcaption1">
+            <b>Plate 1.</b> The geometry of equations (3) and (4), with the
+            &ldquo;line of life&rdquo; drawn as the chronological trajectory across the
+            base plane. The flared rim is the asymptotically flat region; the bright
+            core is the puncture at \(r = 0\). The four side panels anticipate the
+            stages we reach in <a href="#cycle">&sect;10</a>.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 03 BOUNDARIES ───────────── -->
+      <section id="boundaries" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">03</span><span class="lbl" data-i18n="boundaries.lbl1">The field&rsquo;s two boundaries</span><span class="eqs">eq. 5&ndash;7</span></p>
+          <h2 data-i18n="boundaries.h21">Two limits, and a warning about which \(\Delta E\) we mean</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="boundaries.p1">
+          Combining (1) and (3) gives the complexity field on the funnel. Here I must
+          be pedantic, because my first pass was not: equation&nbsp;(1) is
+          stated for a generic \(\Delta E\), but every subsequent calculation uses the
+          <em>vertical</em> field \(\Delta E_z\). These are different objects. I will
+          use \(\Delta E_z\) throughout and flag the substitution as an assumption,
+          not a derivation:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ K(q) \;=\; \frac{1}{\Delta E_z(q)} \;=\; \frac{1}{3}\,r^{1/2} $$</div>
+          <div class="eq-n">(5)</div>
+        </div>
+
+        <p data-i18n="boundaries.p2">
+          So complexity grows as the square root of radius. The two boundaries follow
+          immediately, and they are the load-bearing claims of the whole model:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \lim_{r \to \infty} \Delta E_z(r) = 0 \quad \Longrightarrow \quad \lim_{r \to \infty} K(r) = +\infty $$</div>
+          <div class="eq-n">(6)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ \lim_{r \to 0^{+}} \Delta E_z(r) = +\infty \quad \Longrightarrow \quad \lim_{r \to 0^{+}} K(r) = 0 $$</div>
+          <div class="eq-n">(7)</div>
+        </div>
+
+        <p data-i18n="boundaries.p3">
+          The periphery is a zero-variance regime: spatially homogeneous
+          (\(\nabla \Delta E_z \to 0\)), maximally ordered, and — this is the point —
+          completely motionless. The origin is the opposite in every respect. The
+          model's entire content is the passage between them.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <caption data-i18n="boundaries.caption1">The two boundaries of the complexity field</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="boundaries.th1">Quantity</th>
+                <th scope="col" data-i18n="boundaries.th2">Periphery &nbsp;\(r \to \infty\)</th>
+                <th scope="col" data-i18n="boundaries.th3">Singularity &nbsp;\(r \to 0^{+}\)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th4">Energetic variation \(\Delta E_z\)</th>
+                <td><span class="lim-hi">&#8594; 0</span></td>
+                <td><span class="lim-lo">&#8594; +&#8734;</span></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th5">Structural complexity \(K\)</th>
+                <td><span class="lim-hi">&#8594; +&#8734;</span></td>
+                <td><span class="lim-lo">&#8594; 0</span></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th6">Surface geometry</th>
+                <td data-i18n="boundaries.td1">asymptotically flat</td>
+                <td data-i18n="boundaries.td2">infinitely deep throat</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th7">Potential \(V = -\Delta E_z\)</th>
+                <td><span class="lim-hi">&#8594; 0</span></td>
+                <td><span class="lim-lo">&#8594; &#8722;&#8734;</span></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th8">Perturbation growth \(\lambda\)</th>
+                <td><span class="lim-hi">&#8594; 0</span></td>
+                <td><span class="lim-lo">&#8594; +&#8734;</span></td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th9">Entropy production \(\dot S_{\mathrm{tot}}\)</th>
+                <td data-i18n="boundaries.td3">vanishes</td>
+                <td data-i18n="boundaries.td4">diverges</td>
+              </tr>
+              <tr>
+                <th scope="row" data-i18n="boundaries.th10">Physical reading</th>
+                <td data-i18n="boundaries.td5">absolute order, absolute stillness, maximum information density</td>
+                <td data-i18n="boundaries.td6">deterministic chaos, total structural collapse</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </section>
+
+      <!-- ───────────── 04 KINEMATICS ───────────── -->
+      <section id="kinematics" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">04</span><span class="lbl" data-i18n="kinematics.lbl1">Potential, work, Lagrangian</span><span class="eqs">eq. 8&ndash;12</span></p>
+          <h2 data-i18n="kinematics.h21">The system that moves without being pushed</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="kinematics.p1">
+          Take the potential energy to be the vertical field itself, with a sign so
+          that the funnel is attractive:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ V(r) \;=\; -\Delta E_z(r) \;=\; -3\,r^{-1/2} $$</div>
+          <div class="eq-n">(8)</div>
+        </div>
+
+        <p data-i18n="kinematics.p2">
+          This is a well with no bottom — shallower than Newtonian gravity at short
+          range, but unbounded below all the same. Now the claim that gives the
+          proposal its character. At the periphery there is no gradient to fall down
+          and no external agent to provide a push. What breaks the symmetry?
+        </p>
+
+        <div class="aside-voice">
+          <span class="who" data-i18n="kinematics.span1">The central move</span>
+          <p data-i18n="kinematics.p3">
+            The answer offered is that the system spends its own structure. It has
+            accumulated an unbounded reservoir of complexity, and it converts a
+            portion of that reservoir into work. Order is not a passive state here —
+            it is fuel. This is the part I still think is worth taking seriously,
+            whatever happens to the arithmetic around it.
+          </p>
+        </div>
+
+        <p data-i18n="kinematics.p4">
+          Written along a trajectory \(\gamma(t)\) running from \(r_0\) inward to
+          \(r(t)\), the internal work is the complexity given up:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ W_{\mathrm{int}} \;=\; -\Delta K \;=\; K(r_0) - K\big(r(t)\big) \;=\; \frac{1}{3}\Big(r_0^{1/2} - r(t)^{1/2}\Big) $$</div>
+          <div class="eq-n">(9)</div>
+        </div>
+
+        <p data-i18n="kinematics.p5">
+          Since the motion is inward, \(r(t) < r_0\) and \(W_{\mathrm{int}} > 0\):
+          the system does positive work by becoming simpler. For a unit-mass point
+          particle on the surface, the Lagrangian in planar projection is
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \mathcal{L}(r,\theta,\dot r,\dot\theta) \;=\; \tfrac{1}{2}\big(\dot r^{2} + r^{2}\dot\theta^{2}\big) + 3\,r^{-1/2} $$</div>
+          <div class="eq-n">(10)</div>
+        </div>
+
+        <p data-i18n="kinematics.p6">
+          The angular coordinate is cyclic, so its conjugate momentum is conserved —
+          the model inherits an angular momentum for free:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\mathrm{d}}{\mathrm{d}t}\!\left(\frac{\partial \mathcal{L}}{\partial \dot\theta}\right) = \frac{\partial \mathcal{L}}{\partial \theta} = 0 \quad \Longrightarrow \quad \ell \;=\; r^{2}\dot\theta \;=\; \text{const.} $$</div>
+          <div class="eq-n">(11)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ \ddot r - r\dot\theta^{2} = -\frac{\partial V}{\partial r} \quad \Longrightarrow \quad \ddot r \;=\; \frac{\ell^{2}}{r^{3}} \;-\; \frac{3}{2}\,r^{-3/2} $$</div>
+          <div class="eq-n">(12)</div>
+        </div>
+
+        <p data-i18n="kinematics.p7">
+          Two terms in competition: a centrifugal barrier going as \(r^{-3}\) and an
+          attraction going as \(r^{-3/2}\). For any nonzero \(\ell\) the barrier wins
+          as \(r \to 0\) and the particle never reaches the centre — it orbits. The
+          collapse the proposal describes therefore requires \(\ell = 0\): a purely
+          radial fall. That is a real constraint, and worth naming, because the
+          pictures all show a spiral.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="kinematics.span2">Plate 2</span><span class="pt" data-i18n="kinematics.span3">Kinematics and dynamics of the transition</span></div>
+          <div class="plate-frame">
+            <img src="assets/img/fig2-kinematics.jpg" width="1408" height="768" loading="lazy"
+                 data-i18n-alt="kinematics.alt1" alt="Diagram of an energy landscape funnel with orange trajectories spiralling from a wide rim down to a bright central singularity. A large equation reads K equals K nought over V effective. Panels at right cover system definitions, conjugate pairs, kinematics of the transition with work-threshold and work-done plots, and a thermodynamic interpretation showing the Lyapunov exponent moving from zero or negative to strictly positive.">
+          </div>
+          <figcaption data-i18n="kinematics.figcaption1">
+            <b>Plate 2.</b> The same well, annotated with the work argument. The
+            lower-left chain — complexity decreases, internal work is done, potential
+            falls and kinetic energy rises, chaos follows — is the causal skeleton of
+            equations (8)&ndash;(12). Note that this plate writes the law in the
+            alternative form \(K = K_0/V_{\mathrm{eff}}\); that is the same reciprocal
+            with the scale constant made explicit.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 05 COLLAPSE ───────────── -->
+      <section id="collapse" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">05</span><span class="lbl" data-i18n="collapse.lbl1">Finite-time collapse</span><span class="eqs">eq. 13&ndash;18</span></p>
+          <h2 data-i18n="collapse.h21">How long the fall takes</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="collapse.p1">
+          Set \(\ell = 0\). The equation of motion reduces to
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \ddot r \;=\; -\frac{3}{2}\,r^{-3/2} $$</div>
+          <div class="eq-n">(13)</div>
+        </div>
+
+        <p data-i18n="collapse.p2">
+          Energy is conserved, so integrating once from rest at \(r_0\) gives the
+          inward speed directly:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \tfrac{1}{2}\dot r^{2} + V(r) = V(r_0) \quad \Longrightarrow \quad \dot r \;=\; -\sqrt{6\left(r^{-1/2} - r_0^{-1/2}\right)} $$</div>
+          <div class="eq-n">(14)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ \dot r \;\sim\; -\sqrt{6}\;r^{-1/4} \qquad (r \to 0^{+}) $$</div>
+          <div class="eq-n">(15)</div>
+        </div>
+
+        <p data-i18n="collapse.p3">
+          The speed diverges — but only as \(r^{-1/4}\), which is gentle enough that
+          the time integral converges. Substituting \(r = r_0 u\) and evaluating the
+          resulting Beta integral, \(\int_0^1 u^{1/4}(1-u^{1/2})^{-1/2}\,\mathrm{d}u
+          = 2B(\tfrac{5}{2},\tfrac{1}{2}) = 3\pi/4\), gives a closed form:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ t_c \;=\; \int_{0}^{r_0} \frac{\mathrm{d}r}{\sqrt{6\left(r^{-1/2} - r_0^{-1/2}\right)}} \;=\; \frac{3\pi}{4\sqrt{6}}\; r_0^{5/4} \;\approx\; 0.962\, r_0^{5/4} \;<\; \infty $$</div>
+          <div class="eq-n">(16)</div>
+        </div>
+
+        <p data-i18n="collapse.p4">
+          This is the model's sharpest and most attractive result. The collapse is not
+          asymptotic — it <em>completes</em>. A system starting at any finite radius
+          reaches total structural collapse in finite time, scaling as the
+          five-quarters power of where it started. Nothing about the setup guaranteed
+          that; a slightly steeper funnel would have taken forever.
+        </p>
+
+        <h3 data-i18n="collapse.h31">Why the collapse counts as chaotic</h3>
+
+        <p data-i18n="collapse.p5">
+          Linearise about the trajectory. A small radial perturbation \(\delta r\)
+          obeys \(\delta\ddot r = -V''(r)\,\delta r\), and since
+          \(V(r) = -3r^{-1/2}\) we have \(V''(r) = -\tfrac{9}{4}r^{-5/2}\):
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \delta\ddot r \;=\; -\left.\frac{\partial^{2} V}{\partial r^{2}}\right|_{r(t)} \delta r \;=\; \frac{9}{4}\,r(t)^{-5/2}\,\delta r $$</div>
+          <div class="eq-n">(17)</div>
+        </div>
+
+        <p data-i18n="collapse.p6">
+          The coefficient is positive, so perturbations grow rather than oscillate.
+          The instantaneous growth rate is its square root:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ \lambda(r) \;=\; \sqrt{\tfrac{9}{4}\,r^{-5/2}} \;=\; \frac{3}{2}\,r^{-5/4} \;\xrightarrow[r \to 0^{+}]{} \;+\infty $$</div>
+          <div class="eq-n">(18)</div>
+        </div>
+
+        <p data-i18n="collapse.p7">
+          So neighbouring trajectories separate ever faster as the throat approaches,
+          and the trajectory-averaged rate
+          \(\lambda_{\max} = \lim_{t \to t_c} t^{-1}\!\int_0^t \lambda\,\mathrm{d}\tau\)
+          is strictly positive. That establishes sensitive dependence on initial
+          conditions. I want to be careful about how much that buys us, and I return
+          to it in <a href="#open">&sect;13</a> — a diverging growth rate at a
+          finite-time singularity is not the same thing as a strange attractor.
+        </p>
+        </div>
+      </section>
+
+      <!-- ───────────── 06 THERMO ───────────── -->
+      <section id="thermo" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">06</span><span class="lbl" data-i18n="thermo.lbl1">Out of equilibrium</span><span class="eqs">eq. 19&ndash;21</span></p>
+          <h2 data-i18n="thermo.h21">A free energy with nowhere to settle</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="thermo.p1">
+          Now the thermodynamics. Treat \(K\) as the order parameter, take the
+          internal energy to be the vertical field \(U(K) = \Delta E_z = 1/K\), and
+          assign a configurational entropy \(S(K) = k_B \ln K\) — more structure,
+          more accessible configurations. The non-equilibrium free energy is then
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ F(K,T) \;=\; U(K) - T\,S(K) \;=\; \frac{1}{K} - k_B T \ln K $$</div>
+          <div class="eq-n">(19)</div>
+        </div>
+
+        <p data-i18n="thermo.p2">
+          Look for a stationary point:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\partial F}{\partial K} \;=\; -\frac{1}{K^{2}} - \frac{k_B T}{K} \;=\; 0 \quad \Longrightarrow \quad K_{\mathrm{eq}} \;=\; -\frac{1}{k_B T} $$</div>
+          <div class="eq-n">(20)</div>
+        </div>
+
+        <p data-i18n="thermo.p3">
+          Since \(K_{\mathrm{eq}} < 0\) for every physical temperature \(T > 0\),
+          there is <strong>no stationary point anywhere in the physical domain</strong>
+          \(K > 0\). The system has no equilibrium to sit in. Relaxing by gradient
+          flow with mobility \(\Gamma > 0\):
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\mathrm{d}K}{\mathrm{d}t} \;=\; -\Gamma\,\frac{\partial F}{\partial K} \;=\; \Gamma\left(\frac{1}{K^{2}} + \frac{k_B T}{K}\right) \;>\; 0 $$</div>
+          <div class="eq-n">(21)</div>
+        </div>
+
+        <p data-i18n="thermo.p4">
+          And here is where I have to stop and be honest with you, because
+          equation&nbsp;(21) does not say what the proposal wants it to say. Both
+          terms are positive, so \(\dot K > 0\) everywhere: the gradient flow drives
+          complexity <em>up</em>, toward the periphery, not down toward the throat.
+          The free energy of (19) is monotonically decreasing in \(K\), which means it
+          <em>favours</em> maximum order. The thermodynamics as written pushes the
+          system in exactly the opposite direction from the mechanics of
+          <a href="#collapse">&sect;5</a>. That is not a rounding error; it is a
+          structural problem, and it is the first item in <a href="#open">&sect;13</a>.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="thermo.span1">Plate B</span><span class="pt" data-i18n="thermo.span2">The transition, end to end</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 860 220" role="img" width="860" height="220"
+                 data-i18n-aria="thermo.aria1" aria-label="Diagram of the phase transition. A left box labelled periphery holds maximum complexity, zero energy variation, static symmetry and zero growth rate. An arrow labelled internal work W equals minus delta K crosses to a right box labelled central collapse, holding zero complexity, diverging energy variation, deterministic chaos and a strictly positive growth rate. A note below records that the mechanics and the free energy disagree on the direction of travel.">
+
+              <defs>
+                <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#c08400"/>
+                </marker>
+              </defs>
+
+              <!-- left state -->
+              <rect x="24" y="34" width="278" height="126" fill="#0d1524" stroke="#0093ba" stroke-width="1.5"/>
+              <text x="42" y="60" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" letter-spacing="1.6" data-i18n="thermo.svg1">PERIPHERY &#183; r &#8594; &#8734;</text>
+              <g fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13.5">
+                <text x="42" y="84" data-i18n="thermo.svg2">Maximum complexity</text>
+                <text x="42" y="126" data-i18n="thermo.svg3">Static symmetry, at rest</text>
+              </g>
+              <text x="42" y="105" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">K &#8594; &#8734;   &#8710;E&#8338; &#8594; 0</text>
+              <text x="42" y="147" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">&#955; = 0</text>
+
+              <!-- arrow -->
+              <path d="M312,97 H548" stroke="#c08400" stroke-width="2" fill="none" marker-end="url(#arrB)"/>
+              <text x="430" y="84" text-anchor="middle" fill="#c08400" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">W = &#8722;&#8710;K</text>
+              <text x="430" y="119" text-anchor="middle" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="thermo.svg4">order spent as work</text>
+
+              <!-- right state -->
+              <rect x="558" y="34" width="278" height="126" fill="#0d1524" stroke="#ff2d6b" stroke-width="1.5"/>
+              <text x="576" y="60" fill="#ff2d6b" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" letter-spacing="1.6" data-i18n="thermo.svg5">COLLAPSE &#183; r &#8594; 0</text>
+              <g fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13.5">
+                <text x="576" y="84" data-i18n="thermo.svg6">Zero complexity</text>
+                <text x="576" y="126" data-i18n="thermo.svg7">Deterministic chaos</text>
+              </g>
+              <text x="576" y="105" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">K &#8594; 0   &#8710;E&#8338; &#8594; &#8734;</text>
+              <text x="576" y="147" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">&#955; = (3/2) r&#8315;&#8309;&#8260;&#8308; &gt; 0</text>
+
+              <!-- the disagreement -->
+              <path d="M24,186 H836" stroke="#1e2b42" stroke-width="1"/>
+              <text x="24" y="207" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="thermo.svg8">Unresolved: the mechanics of eq. (13) travels left to right, but the gradient flow of eq. (21) travels right to left.</text>
+            </svg>
+          </div>
+          <figcaption data-i18n="thermo.figcaption1">
+            <b>Plate B.</b> The transition the model sets out to describe, with the
+            contradiction recorded rather than hidden. The mechanical account and the
+            thermodynamic account of the same passage currently disagree about which
+            way the system goes.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 07 ENTROPY ───────────── -->
+      <section id="entropy" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">07</span><span class="lbl" data-i18n="entropy.lbl1">Heat &amp; entropy</span><span class="eqs">eq. 22&ndash;27</span></p>
+          <h2 data-i18n="entropy.h21">What the fall dumps into the bath</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="entropy.p1">
+          Set the direction-of-travel problem aside and follow the mechanical
+          collapse. In stochastic thermodynamics, the heat delivered to a bath at
+          temperature \(T\) is the potential energy shed along the path:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\mathrm{d}Q}{\mathrm{d}t} \;=\; -\frac{\mathrm{d}V}{\mathrm{d}r}\,\dot r(t) \;=\; -\frac{3}{2}\,r(t)^{-3/2}\,\dot r(t) $$</div>
+          <div class="eq-n">(22)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ Q(t) \;=\; \int_{r_0}^{r(t)} \left(-\frac{\mathrm{d}V}{\mathrm{d}r'}\right)\mathrm{d}r' \;=\; 3\left(r(t)^{-1/2} - r_0^{-1/2}\right) $$</div>
+          <div class="eq-n">(23)</div>
+        </div>
+
+        <p data-i18n="entropy.p2">
+          Because \(\dot r < 0\) on the collapse, (22) is positive: heat flows out.
+          The system entropy follows from the Boltzmann&ndash;Shannon form over the
+          complexity field, \(S_{\mathrm{sys}} = k_B \ln K = k_B(\tfrac12 \ln r - \ln 3)\):
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\mathrm{d}S_{\mathrm{sys}}}{\mathrm{d}t} \;=\; \frac{k_B}{2\,r(t)}\,\dot r(t), \qquad \frac{\mathrm{d}S_{\mathrm{med}}}{\mathrm{d}t} \;=\; \frac{1}{T}\frac{\mathrm{d}Q}{\mathrm{d}t} \;=\; -\frac{3}{2T}\,r(t)^{-3/2}\,\dot r(t) $$</div>
+          <div class="eq-n">(24)</div>
+        </div>
+
+        <p data-i18n="entropy.p3">
+          The system's own entropy <em>falls</em> as it collapses — it is losing
+          structure, and \(S_{\mathrm{sys}}\) tracks \(\ln K\). The medium's rises.
+          Summing and using \(|\dot r| = -\dot r\):
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ \frac{\mathrm{d}S_{\mathrm{tot}}}{\mathrm{d}t} \;=\; \left(\frac{3}{2T}\,r^{-3/2} - \frac{k_B}{2r}\right)\lvert \dot r \rvert \;\geq\; 0 $$</div>
+          <div class="eq-n">(25)</div>
+        </div>
+
+        <p data-i18n="entropy.p4">
+          The second law is satisfied, and near the throat the first term dominates
+          comfortably — it goes as \(r^{-3/2}\) against the second's \(r^{-1}\).
+          Substituting the asymptotic velocity (15):
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \frac{\mathrm{d}Q}{\mathrm{d}t} \;\approx\; \frac{3\sqrt{6}}{2}\,r(t)^{-7/4}, \qquad \frac{\mathrm{d}S_{\mathrm{tot}}}{\mathrm{d}t} \;\approx\; \frac{3\sqrt{6}}{2T}\,r(t)^{-7/4} $$</div>
+          <div class="eq-n">(26)</div>
+        </div>
+
+        <p data-i18n="entropy.p5">
+          Both diverge as \(r \to 0^{+}\), and both do so faster than the velocity
+          itself. The collapse is irreversible in the strongest sense available: it
+          produces unbounded entropy in bounded time. Integrating (26) against
+          \(\mathrm{d}t = \mathrm{d}r/|\dot r|\) confirms the total dissipated heat
+          diverges too, which tells us the model's bath must be idealised as
+          infinite:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \Delta S_{\mathrm{tot}} \;\sim\; \frac{3}{T}\int_{0} r^{-3/2}\,\mathrm{d}r \;\longrightarrow\; +\infty $$</div>
+          <div class="eq-n">(27)</div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ───────────── 08 MASS ───────────── -->
+      <section id="mass" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">08</span><span class="lbl" data-i18n="mass.lbl1">Mass equivalence</span><span class="eqs">eq. 28&ndash;31</span></p>
+          <h2 data-i18n="mass.h21">Substituting \(\Delta E = \Delta m c^{2}\)</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="mass.p1">
+          A natural question: if energetic variation drives everything, and energy is
+          mass, can the model be rewritten around mass variance? Substituting
+          Einstein's relation into (1):
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body">$$ K \;=\; \frac{1}{\Delta E_z} \;=\; \frac{1}{\Delta m_z\, c^{2}} $$</div>
+          <div class="eq-n">(28)</div>
+        </div>
+
+        <p data-i18n="mass.p2">
+          With partial mass variations \((\Delta m_1, \Delta m_2)\) and radial
+          coordinate \(r_m\), the field surface becomes
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \Delta m_z(r_m) \;=\; \frac{3}{c^{2}\,r_m^{1/2}}, \qquad \Delta E_z(r_m) \;=\; \Delta m_z c^{2} \;=\; 3\,r_m^{-1/2} $$</div>
+          <div class="eq-n">(29)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ V(r_m) \;=\; -\Delta m_z c^{2} \;=\; -3\,r_m^{-1/2}, \qquad \ddot r_m \;=\; -\frac{3}{2}\,r_m^{-3/2} $$</div>
+          <div class="eq-n">(30)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ W_{\mathrm{int}} \;=\; \frac{1}{c^{2}}\left(\frac{1}{\Delta m_{z,0}} - \frac{1}{\Delta m_z(t)}\right) \;=\; \frac{1}{3}\left(r_{m,0}^{1/2} - r_m^{1/2}\right) $$</div>
+          <div class="eq-n">(31)</div>
+        </div>
+
+        <p data-i18n="mass.p3">
+          The factors of \(c^{2}\) cancel exactly — and that cancellation is the
+          whole result. Every dynamical equation comes back in identical form; only
+          the label on the horizontal axis has changed, from &ldquo;energy
+          variance&rdquo; to &ldquo;mass variance.&rdquo; The substitution is a change
+          of units, not new physics. It is worth doing precisely because it settles
+          the question: nothing relativistic enters, and the appearance of \(c\) in
+          intermediate lines is bookkeeping. (I carried a stray \(1/c^{2}\) through
+          this expression first time round; it should cancel, as above.)
+        </p>
+        </div>
+      </section>
+
+      <!-- ───────────── 09 SCALE ───────────── -->
+      <section id="scale" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">09</span><span class="lbl" data-i18n="scale.lbl1">A sense of scale</span></p>
+          <h2 data-i18n="scale.h21">Interlude: what \(\Delta E\) is worth in real units</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="scale.p1">
+          We have been treating \(\Delta E\) as an abstract quantity with a
+          convenient constant of 3. Before going further it is worth grounding it,
+          because if this framework is ever to say anything about prebiotic
+          chemistry — which is the ambition behind the proposal — then \(\Delta E\)
+          has to be commensurate with the energies real molecules actually trade.
+        </p>
+
+        <p data-i18n="scale.p2">
+          The relevant span is remarkable. Room-temperature thermal jostling is about
+          \(2.5\ \mathrm{kJ\,mol^{-1}}\). A hydrogen bond between water molecules
+          costs roughly \(20\)&ndash;\(23\ \mathrm{kJ\,mol^{-1}}\) to break, so
+          hydrogen bonds sit only about eight times above the noise floor — which is
+          exactly why they break and re-form on picosecond timescales and why liquid
+          water behaves as it does. Stripping an electron off a hydrogen atom costs
+          \(1312\ \mathrm{kJ\,mol^{-1}}\), five hundred times more.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="scale.span1">Plate C</span><span class="pt" data-i18n="scale.span2">Molecular energies, logarithmic</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 860 350" role="img" width="860" height="350"
+                 data-i18n-aria="scale.aria1" aria-label="Dot plot of six molecular energies on a logarithmic axis from 1 to 2000 kilojoules per mole. Thermal motion at 2.5, hydrogen bond in water shown as a range from 20 to 23 and highlighted, latent heat of vaporisation at 40.65, covalent oxygen-hydrogen bond at 460, carbon first ionisation at 1086.5, and hydrogen first ionisation at 1312.">
+
+              <!-- minor grid -->
+              <g stroke="#172236" stroke-width="1">
+                <path d="M309.2,44V290M332.2,44V290M361,44V290M439.5,44V290M462.4,44V290M491.3,44V290M569.7,44V290M592.7,44V290M621.6,44V290M700,44V290"/>
+              </g>
+              <!-- major grid -->
+              <g stroke="#1e2b42" stroke-width="1">
+                <path d="M270,44V290M400.3,44V290M530.5,44V290M660.8,44V290"/>
+              </g>
+
+              <!-- leaders -->
+              <g stroke="#172236" stroke-width="1">
+                <path d="M262,60H316"/>
+                <path d="M262,100H434"/>
+                <path d="M262,140H474"/>
+                <path d="M262,180H611"/>
+                <path d="M262,220H660"/>
+                <path d="M262,260H670"/>
+              </g>
+
+              <!-- row labels -->
+              <g fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="13" text-anchor="end">
+                <text x="252" y="64" data-i18n="scale.svg1">Thermal motion &#183; k&#8331;T (298 K)</text>
+                <text x="252" y="104" fill="#e8eef7" data-i18n="scale.svg2">Hydrogen bond in water</text>
+                <text x="252" y="144" data-i18n="scale.svg3">Vaporising water &#183; latent heat</text>
+                <text x="252" y="184" data-i18n="scale.svg4">Covalent O&#8211;H bond</text>
+                <text x="252" y="224" data-i18n="scale.svg5">Carbon &#183; first ionisation</text>
+                <text x="252" y="264" data-i18n="scale.svg6">Hydrogen &#183; first ionisation</text>
+              </g>
+
+              <!-- marks: one series, one colour; the hydrogen bond emphasised -->
+              <circle cx="321.8" cy="60" r="5.5" fill="#0093ba" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg7">Thermal motion: 2.5 kJ/mol</title></circle>
+
+              <rect x="437.5" y="94.5" width="11.9" height="11" rx="5.5" fill="#c08400" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg8">Hydrogen bond in water: 20 to 23 kJ/mol</title></rect>
+
+              <circle cx="479.6" cy="140" r="5.5" fill="#0093ba" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg9">Latent heat of vaporisation: 40.65 kJ/mol</title></circle>
+              <circle cx="616.9" cy="180" r="5.5" fill="#0093ba" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg10">Covalent O-H bond: about 460 kJ/mol</title></circle>
+              <circle cx="665.5" cy="220" r="5.5" fill="#0093ba" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg11">Carbon first ionisation: 1086.5 kJ/mol</title></circle>
+              <circle cx="676.1" cy="260" r="5.5" fill="#0093ba" stroke="#070b12" stroke-width="2"><title data-i18n="scale.svg12">Hydrogen first ionisation: 1312 kJ/mol</title></circle>
+
+              <!-- value labels, direct at the mark -->
+              <g fill="#e8eef7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5">
+                <text x="335" y="64">2.5</text>
+                <text x="461" y="104" fill="#ffb703">20&#8211;23</text>
+                <text x="493" y="144">40.65</text>
+                <text x="630" y="184">460</text>
+                <text x="679" y="224">1086.5</text>
+                <text x="690" y="264">1312</text>
+              </g>
+
+              <!-- axis -->
+              <path d="M270,290H700" stroke="#64748f" stroke-width="1.5" fill="none"/>
+              <g fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" text-anchor="middle">
+                <text x="270" y="308">1</text>
+                <text x="400.3" y="308">10</text>
+                <text x="530.5" y="308">100</text>
+                <text x="660.8" y="308">1000</text>
+              </g>
+              <text x="485" y="332" text-anchor="middle" fill="#93a4bd"
+                    font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="scale.svg13">energy per mole &#183; kJ mol&#8315;&#185; &#183; logarithmic</text>
+
+              <!-- the eight-fold gap that matters -->
+              <path d="M321.8,74 V86 H437.5 V86" stroke="#c08400" stroke-width="1" fill="none" opacity="0.55"/>
+              <text x="770" y="64" text-anchor="end" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="scale.svg14">the noise floor</text>
+              <path d="M776,60 H800" stroke="#1e2b42" stroke-width="1" fill="none"/>
+              <text x="770" y="104" text-anchor="end" fill="#c08400" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="scale.svg15">&#8776; 8&#215; the noise floor</text>
+            </svg>
+          </div>
+          <figcaption data-i18n="scale.figcaption1">
+            <b>Plate C.</b> Six energies spanning nearly three decades, placed by
+            position on a logarithmic axis (marks are positioned, not sized, so the
+            log scale stays honest). The hydrogen bond is highlighted because it is
+            the interesting case: strong enough to hold structure together, weak
+            enough that thermal noise dismantles it constantly. Any candidate for
+            \(\Delta E\) in a chemical setting has to live in this band.
+          </figcaption>
+          <p class="chart-note" data-i18n="scale.p3">Values at 298 K unless noted; latent heat quoted at 100 &deg;C.</p>
+        </figure>
+
+        <details class="data-table">
+          <summary data-i18n="scale.summary1">Table view</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="scale.th1">Interaction</th>
+                  <th scope="col" class="num">kJ mol&#8315;&#185;</th>
+                  <th scope="col" class="num">eV</th>
+                  <th scope="col" data-i18n="scale.th2">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row" data-i18n="scale.th3">Thermal motion, \(k_B T\)</th><td class="num">2.5</td><td class="num">0.026</td><td>at 298 K</td></tr>
+                <tr><th scope="row" data-i18n="scale.th4">Hydrogen bond in water</th><td class="num">20&ndash;23</td><td class="num">0.21&ndash;0.24</td><td data-i18n="scale.td1">breaks and re-forms on ~10&#8315;&#185;&#178; s</td></tr>
+                <tr><th scope="row" data-i18n="scale.th5">Latent heat of vaporisation</th><td class="num">40.65</td><td class="num">0.42</td><td>2260 J g&#8315;&#185; at 100 &deg;C</td></tr>
+                <tr><th scope="row" data-i18n="scale.th6">Covalent O&ndash;H bond</th><td class="num">460</td><td class="num">4.77</td><td data-i18n="scale.td2">~20&#215; a hydrogen bond</td></tr>
+                <tr><th scope="row" data-i18n="scale.th7">Carbon, first ionisation</th><td class="num">1086.5</td><td class="num">11.260</td><td data-i18n="scale.td3">from a 2p orbital, [He]2s&#178;2p&#178;</td></tr>
+                <tr><th scope="row" data-i18n="scale.th8">Hydrogen, first ionisation</th><td class="num">1312</td><td class="num">13.598</td><td data-i18n="scale.td4">2.18&#215;10&#8315;&#185;&#8312; J per atom</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <p data-i18n="scale.p4">
+          The hydrogen ionisation figure also drops out of the Bohr model, which is a
+          useful sanity check on the units: with
+          \(E_n = -13.6\,\mathrm{eV}/n^{2}\), the ground state sits at
+          \(-13.6\ \mathrm{eV}\) and the energy to remove the electron to infinity is
+          \(\Delta E = E_\infty - E_1 = 13.6\ \mathrm{eV}\). Carbon's
+          \(11.26\ \mathrm{eV}\) is lower than nitrogen's \(14.53\) and higher than
+          boron's \(8.30\), tracking effective nuclear charge across period 2.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="scale.span3">Plate 3</span><span class="pt" data-i18n="scale.span4">The bond in question</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 900 550" width="900" height="550" role="img"
+                 data-i18n-aria="scale.aria2" aria-label="Three water molecules. Each has a red oxygen atom marked delta minus, joined by thick grey covalent bonds to two blue hydrogen atoms marked delta plus. Two dashed cyan lines run from hydrogens of the upper molecules to the oxygen of the lower one; these are labelled hydrogen bonds at 20 to 23 kilojoules per mole, against the covalent bonds at about 460.">
+              <defs>
+                <radialGradient id="hb-oxy" cx="35%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#ff8fae"/>
+                  <stop offset="40%" stop-color="#ff2d6b"/>
+                  <stop offset="100%" stop-color="#7a1533"/>
+                </radialGradient>
+                <radialGradient id="hb-hydro" cx="35%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#b3ecfb"/>
+                  <stop offset="40%" stop-color="#4fd4f5"/>
+                  <stop offset="100%" stop-color="#0a5c73"/>
+                </radialGradient>
+                <filter id="hb-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="b"/>
+                  <feComposite in="SourceGraphic" in2="b" operator="over"/>
+                </filter>
+                <marker id="hb-arr-dim" viewBox="0 0 10 10" refX="8" refY="5"
+                        markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#93a4bd"/>
+                </marker>
+                <marker id="hb-arr-cyan" viewBox="0 0 10 10" refX="8" refY="5"
+                        markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#4fd4f5"/>
+                </marker>
+              </defs>
+
+              <!-- covalent bonds -->
+              <g stroke="#64748f" stroke-width="8" stroke-linecap="round" fill="none">
+                <path d="M250,160 L150,260M250,160 L350,260"/>
+                <path d="M650,160 L550,260M650,160 L750,260"/>
+                <path d="M450,380 L350,480M450,380 L550,480"/>
+              </g>
+
+              <!-- hydrogen bonds -->
+              <g stroke="#4fd4f5" stroke-width="6" stroke-dasharray="8,8"
+                 stroke-linecap="round" fill="none" filter="url(#hb-glow)">
+                <path d="M350,260 L450,380"/>
+                <path d="M550,260 L450,380"/>
+              </g>
+
+              <!-- atoms -->
+              <g font-family="Source Sans 3, system-ui, sans-serif" font-weight="700"
+                 fill="#ffffff" text-anchor="middle">
+                <circle cx="250" cy="160" r="36" fill="url(#hb-oxy)" filter="url(#hb-glow)"/>
+                <text x="250" y="172" font-size="28">O</text>
+                <circle cx="650" cy="160" r="36" fill="url(#hb-oxy)" filter="url(#hb-glow)"/>
+                <text x="650" y="172" font-size="28">O</text>
+                <circle cx="450" cy="380" r="36" fill="url(#hb-oxy)" filter="url(#hb-glow)"/>
+                <text x="450" y="392" font-size="28">O</text>
+
+                <circle cx="150" cy="260" r="30" fill="url(#hb-hydro)"/>
+                <text x="150" y="270" font-size="24">H</text>
+                <circle cx="350" cy="260" r="30" fill="url(#hb-hydro)"/>
+                <text x="350" y="270" font-size="24">H</text>
+                <circle cx="550" cy="260" r="30" fill="url(#hb-hydro)"/>
+                <text x="550" y="270" font-size="24">H</text>
+                <circle cx="750" cy="260" r="30" fill="url(#hb-hydro)"/>
+                <text x="750" y="270" font-size="24">H</text>
+                <circle cx="350" cy="480" r="30" fill="url(#hb-hydro)"/>
+                <text x="350" y="490" font-size="24">H</text>
+                <circle cx="550" cy="480" r="30" fill="url(#hb-hydro)"/>
+                <text x="550" y="490" font-size="24">H</text>
+              </g>
+
+              <!-- partial charges -->
+              <g fill="#e8eef7" font-family="Source Sans 3, system-ui, sans-serif"
+                 font-size="24" text-anchor="middle">
+                <text x="250" y="105">&#948;<tspan dy="-8" font-size="16">&#8722;</tspan></text>
+                <text x="650" y="105">&#948;<tspan dy="-8" font-size="16">&#8722;</tspan></text>
+                <text x="450" y="325">&#948;<tspan dy="-8" font-size="16">&#8722;</tspan></text>
+                <text x="105" y="235">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+                <text x="395" y="235">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+                <text x="505" y="235">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+                <text x="795" y="235">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+                <text x="305" y="455">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+                <text x="595" y="455">&#948;<tspan dy="-8" font-size="16">+</tspan></text>
+              </g>
+
+              <!-- annotations, each carrying the energy it costs -->
+              <text x="368" y="140" fill="#93a4bd" font-family="Source Sans 3, system-ui, sans-serif"
+                    font-weight="600" font-size="18" data-i18n="scale.svg16">Covalent bond</text>
+              <text x="368" y="160" fill="#64748f" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="13" data-i18n="scale.svg17">&#8776; 460 kJ mol&#8315;&#185;</text>
+              <path d="M400,172 Q360,190 318,196" fill="none" stroke="#93a4bd"
+                    stroke-width="2" marker-end="url(#hb-arr-dim)"/>
+
+              <text x="590" y="336" fill="#4fd4f5" font-family="Source Sans 3, system-ui, sans-serif"
+                    font-weight="600" font-size="18" data-i18n="scale.svg18">Hydrogen bond</text>
+              <text x="590" y="356" fill="#0093ba" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="13" data-i18n="scale.svg19">20&#8211;23 kJ mol&#8315;&#185;</text>
+              <path d="M584,330 Q548,318 514,312" fill="none" stroke="#4fd4f5"
+                    stroke-width="2" marker-end="url(#hb-arr-cyan)"/>
+            </svg>
+          </div>
+          <figcaption data-i18n="scale.figcaption2">
+            <b>Plate 3.</b> The hydrogen bond, for orientation. The grey links are
+            covalent and cost about \(460\ \mathrm{kJ\,mol^{-1}}\); the dotted links
+            are the hydrogen bonds at \(20\)&ndash;\(23\). Water's whole character —
+            its heat capacity of \(4.184\ \mathrm{J\,g^{-1}\,{}^\circ C^{-1}}\), its
+            latent heat, its liquidity at habitable temperatures — comes from that
+            twenty-fold gap.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 10 CYCLE ───────────── -->
+      <section id="cycle" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">10</span><span class="lbl" data-i18n="cycle.lbl1">The closed cycle</span></p>
+          <h2 data-i18n="cycle.h21">Four stages and a return</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="cycle.p1">
+          Assembled in order, the model describes a cycle rather than a one-way trip.
+          Here is the sequence, with the state of the system at each step.
+        </p>
+
+        <div class="stages">
+          <div class="stage s1">
+            <span class="sn" aria-hidden="true">01</span>
+            <div>
+              <h4 data-i18n="cycle.h41">The periphery &middot; maximum order</h4>
+              <p data-i18n="cycle.p2">
+                The system sits at the flat outer boundary with zero energetic
+                variation and unbounded complexity. Entropy production vanishes.
+                It is symmetric, information-dense, and completely still.
+              </p>
+              <span class="st-state">&#8710;E&#8338; &#8594; 0 &nbsp;&middot;&nbsp; K &#8594; &#8734; &nbsp;&middot;&nbsp; dS/dt = 0</span>
+            </div>
+          </div>
+          <div class="stage s2">
+            <span class="sn" aria-hidden="true">02</span>
+            <div>
+              <h4 data-i18n="cycle.h42">Inception &middot; internal work</h4>
+              <p data-i18n="cycle.p3">
+                With no external force available, the system converts stored
+                complexity into work, \(W_{\mathrm{int}} = -\Delta K\). This is the
+                symmetry-breaking step: it buys the first infinitesimal displacement
+                and lowers the free energy enough to overcome static inertia.
+              </p>
+              <span class="st-state" data-i18n="cycle.span1">&#8710;K &lt; 0 &nbsp;&middot;&nbsp; W &gt; 0 &nbsp;&middot;&nbsp; first motion</span>
+            </div>
+          </div>
+          <div class="stage s3">
+            <span class="sn" aria-hidden="true">03</span>
+            <div>
+              <h4 data-i18n="cycle.h43">Collapse &middot; non-equilibrium acceleration</h4>
+              <p data-i18n="cycle.p4">
+                Captured by the gradient of \(V(r) = -3r^{-1/2}\), the system
+                accelerates inward. Potential converts to kinetic variation,
+                complexity falls, and entropy production turns strictly positive —
+                the dynamics become irreversible.
+              </p>
+              <span class="st-state">&#8710;E&#8338; &#8593; &nbsp;&middot;&nbsp; K &#8595; &nbsp;&middot;&nbsp; dS/dt &gt; 0</span>
+            </div>
+          </div>
+          <div class="stage s4">
+            <span class="sn" aria-hidden="true">04</span>
+            <div>
+              <h4 data-i18n="cycle.h44">Singularity &middot; deterministic chaos</h4>
+              <p data-i18n="cycle.p5">
+                At \(r = 0\), reached after the finite time \(t_c\) of
+                equation&nbsp;(16), complexity vanishes and energetic variation
+                diverges. Neighbouring trajectories separate without bound. This is
+                the terminus of the mechanical account.
+              </p>
+              <span class="st-state">K &#8594; 0 &nbsp;&middot;&nbsp; &#8710;E&#8338; &#8594; &#8734; &nbsp;&middot;&nbsp; &#955; &#8594; +&#8734;</span>
+            </div>
+          </div>
+          <div class="stage s5">
+            <span class="sn" aria-hidden="true">05</span>
+            <div>
+              <h4 data-i18n="cycle.h45">Return &middot; re-crystallisation</h4>
+              <p data-i18n="cycle.p6">
+                The proposed closure: having dissipated maximally, energy
+                redistributes outward, the system recovers structure, and the
+                peripheral condition is restored. This is the least secure stage of
+                the model — it is asserted rather than derived, and
+                <a href="#hourglass">&sect;11</a> is the attempt to give it a
+                geometry.
+              </p>
+              <span class="st-state" data-i18n="cycle.span2">Q dissipated &nbsp;&middot;&nbsp; K &#8594; &#8734; &nbsp;&middot;&nbsp; cycle closes</span>
+            </div>
+          </div>
+        </div>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="cycle.span3">Plate D</span><span class="pt" data-i18n="cycle.span4">The cycle as a closed loop</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 860 300" role="img" width="860" height="300"
+                 data-i18n-aria="cycle.aria1" aria-label="Cycle diagram. Four stages run left to right: periphery, inception, collapse, singularity, joined by labelled arrows reading internal work, potential gradient, and finite time t c. A return path loops from the singularity back to the periphery, labelled dissipation and re-crystallisation and marked as asserted, not derived.">
+
+              <defs>
+                <marker id="arrD" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#93a4bd"/>
+                </marker>
+                <marker id="arrDret" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#00ffcc"/>
+                </marker>
+              </defs>
+
+              <!-- stage boxes -->
+              <g>
+                <rect x="24" y="60" width="166" height="86" fill="#0d1524" stroke="#4fd4f5" stroke-width="1.5"/>
+                <text x="107" y="88" text-anchor="middle" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.4" data-i18n="cycle.svg1">01 PERIPHERY</text>
+                <text x="107" y="110" text-anchor="middle" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="cycle.svg2">Maximum order</text>
+                <text x="107" y="130" text-anchor="middle" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5">K &#8594; &#8734;</text>
+              </g>
+              <g>
+                <rect x="248" y="60" width="166" height="86" fill="#0d1524" stroke="#ffb703" stroke-width="1.5"/>
+                <text x="331" y="88" text-anchor="middle" fill="#ffb703" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.4" data-i18n="cycle.svg3">02 INCEPTION</text>
+                <text x="331" y="110" text-anchor="middle" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="cycle.svg4">Order spent</text>
+                <text x="331" y="130" text-anchor="middle" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5">&#8710;K &lt; 0</text>
+              </g>
+              <g>
+                <rect x="472" y="60" width="166" height="86" fill="#0d1524" stroke="#ff7a3d" stroke-width="1.5"/>
+                <text x="555" y="88" text-anchor="middle" fill="#ff7a3d" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.4" data-i18n="cycle.svg5">03 COLLAPSE</text>
+                <text x="555" y="110" text-anchor="middle" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="cycle.svg6">Irreversible fall</text>
+                <text x="555" y="130" text-anchor="middle" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5">dS/dt &gt; 0</text>
+              </g>
+              <g>
+                <rect x="696" y="60" width="140" height="86" fill="#0d1524" stroke="#ff2d6b" stroke-width="1.5"/>
+                <text x="766" y="88" text-anchor="middle" fill="#ff2d6b" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.4" data-i18n="cycle.svg7">04 SINGULARITY</text>
+                <text x="766" y="110" text-anchor="middle" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="13" data-i18n="cycle.svg8">Chaos</text>
+                <text x="766" y="130" text-anchor="middle" fill="#93a4bd" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5">K &#8594; 0</text>
+              </g>
+
+              <!-- forward arrows -->
+              <g stroke="#93a4bd" stroke-width="1.5" fill="none">
+                <path d="M196,103 H242" marker-end="url(#arrD)"/>
+                <path d="M420,103 H466" marker-end="url(#arrD)"/>
+                <path d="M644,103 H690" marker-end="url(#arrD)"/>
+              </g>
+              <g fill="#64748f" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" text-anchor="middle">
+                <text x="219" y="94">W=&#8722;&#8710;K</text>
+                <text x="443" y="94">&#8722;&#8711;V</text>
+                <text x="667" y="94">t&#8348;</text>
+              </g>
+
+              <!-- return loop -->
+              <path d="M766,152 V206 H107 V152" stroke="#00ffcc" stroke-width="1.5" fill="none"
+                    stroke-dasharray="7,4" marker-end="url(#arrDret)"/>
+              <text x="436" y="228" text-anchor="middle" fill="#00ffcc" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" data-i18n="cycle.svg9">05 &#183; DISSIPATION &amp; RE-CRYSTALLISATION</text>
+              <text x="436" y="248" text-anchor="middle" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="cycle.svg10">asserted, not derived &#8212; the return path is the model&#8217;s weakest link</text>
+
+              <path d="M24,270 H836" stroke="#1e2b42" stroke-width="1"/>
+              <text x="24" y="290" fill="#64748f" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="cycle.svg11">Stages 01&#8211;04 follow from equations (5)&#8211;(18). Stage 05 requires new physics at the singularity; the dashed return marks that gap.</text>
+            </svg>
+          </div>
+          <figcaption data-i18n="cycle.figcaption1">
+            <b>Plate D.</b> The cycle, with the four derived stages drawn solid and
+            the return path drawn dashed. The dashing is doing real work here: it
+            marks the one leg of the loop that the mathematics does not supply.
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 11 HOURGLASS ───────────── -->
+      <section id="hourglass" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">11</span><span class="lbl" data-i18n="hourglass.lbl1">The hourglass</span><span class="eqs">eq. 32&ndash;35</span></p>
+          <h2 data-i18n="hourglass.h21">Giving the return path a geometry</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="hourglass.p1">
+          If the cycle is to close, the funnel cannot simply end. The proposed fix is
+          to reflect it: past the throat the manifold widens again into a second,
+          inverted funnel, making the whole field an hourglass — two sheets joined at
+          a bottleneck. Formally, \(\Delta E_z\) becomes piecewise:
+        </p>
+
+        <div class="eq is-key">
+          <div class="eq-body" data-i18n="hourglass.eq32">$$ \Delta E_z(r) \;=\; \begin{cases} \; +3\,r^{-1/2}, & z > 0 \quad \text{(upper: contracting, collapse regime)}\\[4pt] \; -3\,r^{-1/2}, & z < 0 \quad \text{(lower: expanding, emergence regime)} \end{cases} $$</div>
+          <div class="eq-n">(32)</div>
+        </div>
+
+        <p data-i18n="hourglass.p2">
+          Complexity is defined by the magnitude, so it is single-valued across the
+          whole vertical domain and recovers on the way out just as it was lost on the
+          way in:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ K(r,z) \;=\; \frac{1}{\lvert \Delta E_z(r) \rvert} \;=\; \frac{1}{3}\,r^{1/2} $$</div>
+          <div class="eq-n">(33)</div>
+        </div>
+
+        <p data-i18n="hourglass.p3">
+          The dynamics need one more ingredient. A deterministic trajectory arriving
+          at \(r = 0\) has no way to choose the outgoing branch — the equations are
+          exhausted at the throat. So a stochastic term \(\eta(t)\) is introduced to
+          carry the system across the bottleneck:
+        </p>
+
+        <div class="eq">
+          <div class="eq-body">$$ \ddot r \;=\; -\frac{3}{2}\,r^{-3/2}\,\operatorname{sgn}(z) \;+\; \eta(t) $$</div>
+          <div class="eq-n">(34)</div>
+        </div>
+
+        <div class="eq">
+          <div class="eq-body">$$ \dot z \;=\; \dot r \,\frac{\partial (\Delta E_z)}{\partial r} \;=\; -\frac{3}{2}\,r^{-3/2}\,\dot r $$</div>
+          <div class="eq-n">(35)</div>
+        </div>
+
+        <p data-i18n="hourglass.p4">
+          The \(\operatorname{sgn}(z)\) reverses the force below the throat, so the
+          lower sheet expels rather than attracts, and the system runs back out to
+          \(r \to \infty\) where \(K \to \infty\) again. Energetic fluctuations decay
+          into the environment as heat \(Q(t)\); structure re-assembles; the outer
+          boundary condition is restored. The loop closes.
+        </p>
+
+        <p data-i18n="hourglass.p5">
+          I should be plain that \(\eta(t)\) is where the difficulty has been
+          relocated rather than removed. It is doing indispensable work — without it
+          nothing crosses — and the model does not say what it is. That is the second
+          item in <a href="#open">&sect;13</a>.
+        </p>
+
+        <figure class="plate">
+          <div class="plate-head"><span class="pn" data-i18n="hourglass.span1">Plate E</span><span class="pt" data-i18n="hourglass.span2">The hourglass field, cross-section</span></div>
+          <div class="plate-frame">
+            <svg viewBox="0 0 900 620" role="img" width="900" height="620"
+                 data-i18n-aria="hourglass.aria1" aria-label="Cross-section of an hourglass-shaped field. An upper funnel with a wide dashed rim narrows to a bright central throat; below it a mirrored lower funnel widens back out to a second rim. A white spiral traces the collapse from the upper rim into the throat; a teal spiral traces the expansion out through the lower funnel. Labels mark the upper periphery with maximum complexity and zero energy variation, the internal work that breaks equilibrium, the singularity throat with zero complexity and diverging energy variation and a positive growth rate, and the lower boundary where complexity regenerates.">
+
+              <defs>
+                <radialGradient id="hgThroat" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ff2d6b" stop-opacity="0.85"/>
+                  <stop offset="45%" stop-color="#ff7a3d" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#ff7a3d" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="hgUp" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#0093ba" stop-opacity="0.16"/>
+                  <stop offset="100%" stop-color="#ff2d6b" stop-opacity="0.30"/>
+                </linearGradient>
+                <linearGradient id="hgDown" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ff2d6b" stop-opacity="0.30"/>
+                  <stop offset="100%" stop-color="#00ffcc" stop-opacity="0.14"/>
+                </linearGradient>
+              </defs>
+
+              <!-- throat glow, behind the mesh -->
+              <circle cx="430" cy="310" r="78" fill="url(#hgThroat)"/>
+
+              <!-- surface fills -->
+              <path fill="url(#hgUp)" d="M200,110 L424.8,310 L435.2,310 L660,110 Z" opacity="0.75"/>
+              <path fill="url(#hgDown)" d="M200,510 L424.8,310 L435.2,310 L660,510 Z" opacity="0.75"/>
+
+              <!-- wireframe ellipses, upper -->
+              <g fill="none" stroke="#0093ba">
+                <ellipse cx="430" cy="110" rx="230" ry="59.8" stroke="#4fd4f5" stroke-width="1.6" stroke-dasharray="6,4"/>
+                <ellipse cx="430" cy="118.5" rx="149.5" ry="38.9" stroke-width="1.2" opacity="0.6"/>
+                <ellipse cx="430" cy="130.5" rx="92" ry="23.9" stroke-width="1.2" opacity="0.6"/>
+                <ellipse cx="430" cy="149.1" rx="51.8" ry="13.5" stroke-width="1.2" opacity="0.65"/>
+                <ellipse cx="430" cy="183.6" rx="24.1" ry="6.3" stroke="#ffb703" stroke-width="1.2" opacity="0.8"/>
+                <ellipse cx="430" cy="251.2" rx="9.2" ry="2.4" stroke="#ff7a3d" stroke-width="1.2" opacity="0.85"/>
+              </g>
+
+              <!-- wireframe ellipses, lower -->
+              <g fill="none" stroke="#0093ba">
+                <ellipse cx="430" cy="368.8" rx="9.2" ry="2.4" stroke="#ff7a3d" stroke-width="1.2" opacity="0.85"/>
+                <ellipse cx="430" cy="436.4" rx="24.1" ry="6.3" stroke="#00ffcc" stroke-width="1.2" opacity="0.6"/>
+                <ellipse cx="430" cy="470.9" rx="51.8" ry="13.5" stroke-width="1.2" opacity="0.65"/>
+                <ellipse cx="430" cy="489.5" rx="92" ry="23.9" stroke-width="1.2" opacity="0.6"/>
+                <ellipse cx="430" cy="501.5" rx="149.5" ry="38.9" stroke-width="1.2" opacity="0.6"/>
+                <ellipse cx="430" cy="510" rx="230" ry="59.8" stroke="#00ffcc" stroke-width="1.6" stroke-dasharray="6,4" opacity="0.75"/>
+              </g>
+
+              <!-- funnel walls -->
+              <g fill="none" stroke="#4fd4f5" stroke-width="2" opacity="0.9">
+                <path d="M660.0,110.0 L653.2,110.5 L646.4,111.1 L638.6,111.8 L630.0,112.6 L620.7,113.5 L610.7,114.5 L600.2,115.7 L589.2,117.1 L577.7,118.7 L565.8,120.6 L553.5,122.9 L540.8,125.6 L527.7,128.8 L514.4,133.0 L500.6,138.4 L486.6,145.9 L472.3,157.0 L457.6,176.5 L442.7,224.7 L435.2,310.0"/>
+                <path d="M200.0,110.0 L206.8,110.5 L213.6,111.1 L221.4,111.8 L230.0,112.6 L239.3,113.5 L249.3,114.5 L259.8,115.7 L270.8,117.1 L282.3,118.7 L294.2,120.6 L306.5,122.9 L319.2,125.6 L332.3,128.8 L345.6,133.0 L359.4,138.4 L373.4,145.9 L387.7,157.0 L402.4,176.5 L417.3,224.7 L424.8,310.0"/>
+              </g>
+              <g fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.75">
+                <path d="M660.0,510.0 L653.2,509.5 L646.4,508.9 L638.6,508.2 L630.0,507.4 L620.7,506.5 L610.7,505.5 L600.2,504.3 L589.2,502.9 L577.7,501.3 L565.8,499.4 L553.5,497.1 L540.8,494.4 L527.7,491.2 L514.4,487.0 L500.6,481.6 L486.6,474.1 L472.3,463.0 L457.6,443.5 L442.7,395.3 L435.2,310.0"/>
+                <path d="M200.0,510.0 L206.8,509.5 L213.6,508.9 L221.4,508.2 L230.0,507.4 L239.3,506.5 L249.3,505.5 L259.8,504.3 L270.8,502.9 L282.3,501.3 L294.2,499.4 L306.5,497.1 L319.2,494.4 L332.3,491.2 L345.6,487.0 L359.4,481.6 L373.4,474.1 L387.7,463.0 L402.4,443.5 L417.3,395.3 L424.8,310.0"/>
+              </g>
+
+              <!-- collapse trajectory -->
+              <path fill="none" stroke="#e8eef7" stroke-width="1.8" opacity="0.9" stroke-linecap="round"
+                    d="M651.4,110.7 L647.9,119.7 L638.8,128.5 L624.5,136.7 L605.6,144.2 L582.4,150.8 L555.8,156.3 L526.5,160.7 L495.2,163.7 L462.7,165.5 L430.0,165.8 L397.8,164.9 L366.9,162.6 L338.2,159.2 L312.2,154.7 L289.6,149.2 L271.0,142.9 L256.6,136.0 L246.8,128.7 L241.7,121.2 L241.4,113.7 L245.7,106.3 L254.6,99.3 L267.5,92.8 L284.2,87.0 L304.1,82.1 L326.6,78.1 L351.1,75.1 L377.0,73.2 L403.5,72.4 L430.0,72.7 L455.8,74.1 L480.2,76.5 L502.7,79.9 L522.7,84.1 L539.9,89.1 L553.8,94.6 L564.3,100.5 L571.0,106.7 L574.1,113.1 L573.4,119.4 L569.3,125.5 L561.8,131.3 L551.2,136.7 L538.1,141.4 L522.7,145.6 L505.6,149.0 L487.2,151.6 L468.2,153.4 L448.9,154.4 L430.0,154.7 L411.9,154.2 L395.0,153.0 L379.8,151.2 L366.5,148.9 L355.5,146.2 L346.9,143.2 L340.9,140.0 L337.4,136.8 L336.5,133.6 L338.0,130.5 L341.8,127.7 L347.6,125.3 L355.3,123.3 L364.4,121.7 L374.6,120.8 L385.5,120.3 L396.9,120.5 L408.3,121.3 L419.5,122.7 L430.0,124.6 L439.7,127.0 L448.2,129.9 L455.5,133.2 L461.3,136.9 L465.6,140.9 L468.4,145.1 L469.8,149.5 L469.7,154.1 L468.4,158.9 L466.0,163.9 L462.7,169.1 L458.7,174.5 L454.3,180.4 L449.7,186.9 L445.1,194.3 L440.9,203.1 L437.0,214.2 L433.9,228.8 L431.5,250.0 L430.0,284.6"/>
+
+              <!-- expansion trajectory -->
+              <path fill="none" stroke="#00ffcc" stroke-width="1.8" opacity="0.9" stroke-linecap="round"
+                    d="M436.6,337.1 L437.3,348.1 L438.0,360.5 L438.6,372.0 L438.9,382.2 L438.8,391.0 L438.2,398.7 L437.0,405.5 L435.3,411.4 L432.9,416.7 L430.0,421.5 L426.5,425.8 L422.6,429.9 L418.3,433.8 L413.8,437.6 L409.2,441.3 L404.6,445.0 L400.3,448.7 L396.4,452.4 L393.1,456.2 L390.6,460.0 L389.1,463.8 L388.6,467.7 L389.3,471.4 L391.4,475.1 L394.7,478.7 L399.4,482.1 L405.4,485.2 L412.5,488.1 L420.8,490.5 L430.0,492.6 L439.9,494.3 L450.3,495.4 L460.8,496.1 L471.3,496.2 L481.3,495.8 L490.6,494.9 L498.9,493.5 L505.8,491.7 L511.1,489.6 L514.5,487.1 L515.9,484.4 L515.1,481.5 L511.9,478.6 L506.4,475.8 L498.5,473.1 L488.4,470.7 L476.3,468.7 L462.3,467.1 L446.7,466.1 L430.0,465.7 L412.4,465.9 L394.5,467.0 L376.7,468.7 L359.5,471.2 L343.3,474.4 L328.6,478.3 L316.0,482.9 L305.8,488.0 L298.3,493.5 L294.0,499.4 L293.0,505.5 L295.5,511.6 L301.6,517.7 L311.2,523.6 L324.2,529.0 L340.4,534.0 L359.6,538.3 L381.2,541.7 L404.9,544.3 L430.0,545.9 L456.0,546.5 L482.3,545.9 L508.1,544.3 L532.7,541.6 L555.6,537.8 L576.0,533.0 L593.3,527.4 L607.1,521.0 L616.8,514.1 L622.0,506.7 L622.5,499.0 L618.1,491.3 L608.8,483.8 L594.7,476.7 L576.1,470.1 L553.1,464.2 L526.5,459.4 L496.6,455.6 L464.2,453.0 L430.0,451.8"/>
+
+              <!-- state points -->
+              <circle cx="574.1" cy="113.1" r="5" fill="#ffb703" stroke="#070b12" stroke-width="1.5"/>
+              <circle cx="389.1" cy="463.8" r="5" fill="#00ffcc" stroke="#070b12" stroke-width="1.5"/>
+
+              <!-- the throat -->
+              <ellipse cx="430" cy="310" rx="18" ry="5" fill="#e8eef7"/>
+              <circle cx="430" cy="310" r="4.5" fill="#ff2d6b"/>
+
+              <!-- axis triad -->
+              <g transform="translate(74,96)">
+                <path d="M0,0 V-52" stroke="#4fd4f5" stroke-width="1.6" fill="none"/>
+                <path d="M0,0 L42,25" stroke="#4fd4f5" stroke-width="1.2" fill="none"/>
+                <path d="M0,0 L-42,25" stroke="#4fd4f5" stroke-width="1.2" fill="none"/>
+                <text x="0" y="-60" text-anchor="middle" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11">+z (&#8710;E&#8338;)</text>
+                <text x="50" y="31" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">&#8710;E&#8322;</text>
+                <text x="-52" y="31" text-anchor="end" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">&#8710;E&#8321;</text>
+              </g>
+
+              <!-- upper periphery label -->
+              <g>
+                <path d="M672,74 L642,96" stroke="#4fd4f5" stroke-width="1.2" fill="none"/>
+                <text x="676" y="62" fill="#4fd4f5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" letter-spacing="1.2" data-i18n="hourglass.svg1">UPPER PERIPHERY</text>
+                <text x="676" y="80" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg2">Max complexity K &#8594; &#8734;</text>
+                <text x="676" y="97" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg3">Variation &#8710;E&#8338; &#8594; 0</text>
+              </g>
+
+              <!-- internal work label -->
+              <g>
+                <path d="M186,178 L246,140" stroke="#ffb703" stroke-width="1.2" fill="none"/>
+                <text x="180" y="166" text-anchor="end" fill="#ffb703" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" letter-spacing="1.2" data-i18n="hourglass.svg4">INTERNAL WORK</text>
+                <text x="180" y="184" text-anchor="end" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg5">W = &#8722;&#8710;K breaks</text>
+                <text x="180" y="201" text-anchor="end" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg6">static equilibrium</text>
+              </g>
+
+              <!-- throat label -->
+              <g>
+                <path d="M496,310 H452" stroke="#ff2d6b" stroke-width="1.2" fill="none"/>
+                <text x="502" y="292" fill="#ff2d6b" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" letter-spacing="1.2" data-i18n="hourglass.svg7">SINGULARITY THROAT</text>
+                <text x="502" y="310" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="12.5">K = 0, &#8710;E&#8338; &#8594; &#8734;, &#955; &gt; 0</text>
+                <text x="502" y="327" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg8">crossed only by &#951;(t)</text>
+              </g>
+
+              <!-- lower boundary label -->
+              <g>
+                <path d="M672,494 L640,510" stroke="#00ffcc" stroke-width="1.2" fill="none"/>
+                <text x="676" y="482" fill="#00ffcc" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" letter-spacing="1.2" data-i18n="hourglass.svg9">LOWER BOUNDARY</text>
+                <text x="676" y="500" fill="#e8eef7" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg10">Self-assembly, K &#8594; &#8734;</text>
+                <text x="676" y="517" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12.5" data-i18n="hourglass.svg11">Heat Q shed outward</text>
+              </g>
+
+              <!-- legend -->
+              <g>
+                <path d="M24,588 H876" stroke="#1e2b42" stroke-width="1"/>
+                <circle cx="34" cy="606" r="4.5" fill="#e8eef7"/>
+                <text x="46" y="610" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="hourglass.svg12">Inward collapse</text>
+                <circle cx="184" cy="606" r="4.5" fill="#ff2d6b"/>
+                <text x="196" y="610" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="hourglass.svg13">Maximum dissipation</text>
+                <circle cx="362" cy="606" r="4.5" fill="#00ffcc"/>
+                <text x="374" y="610" fill="#93a4bd" font-family="Source Sans 3, sans-serif" font-size="12" data-i18n="hourglass.svg14">Outward re-crystallisation</text>
+                <text x="876" y="610" text-anchor="end" fill="#ffb703" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12">K = 1 / |&#8710;E&#8338;|</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption data-i18n="hourglass.figcaption1">
+            <b>Plate E.</b> The hourglass of equations (32)&ndash;(35), drawn to the
+            actual profile \(z = 3r^{-1/2}\) rather than sketched, with the
+            trajectories projected onto the surface so the spiral rides the far wall
+            where it should. Both rims are dashed because both are at infinity: the
+            drawing truncates them at \(r = 4\), and the throat at \(r = 0.09\).
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- ───────────── 12 MODEL ───────────── -->
+      <section id="model-section" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">12</span><span class="lbl" data-i18n="model-section.lbl1">The model, running</span></p>
+          <h2 data-i18n="model-section.h21">Watch it fall</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="model-section.p1">
+          Static plates only get you so far with a system whose whole content is a
+          passage. Below, the hourglass is rendered live: the state point traverses
+          the upper funnel, accelerates into the throat, crosses, and expands out
+          through the lower sheet. Drag to orbit, scroll to zoom. The readouts are
+          computed from the equations above, not scripted.
+        </p>
+
+        <div class="model" id="model">
+          <div class="model-stage">
+            <p class="model-hint" data-i18n="model-section.p2">Drag to orbit<br>Scroll to zoom</p>
+            <div class="model-fallback">
+              <p data-i18n="model-section.p3">3D view unavailable in this browser &mdash; see Plate E above for the static cross-section.</p>
+            </div>
+          </div>
+
+          <div class="model-hud">
+            <div class="hud-cell is-phase" id="hud-phase">
+              <span class="hl" data-i18n="model-section.span1">Phase domain</span><span class="hv">&mdash;</span>
+            </div>
+            <div class="hud-cell" id="hud-r">
+              <span class="hl" data-i18n="model-section.span2">Radius r</span><span class="hv">&mdash;</span>
+            </div>
+            <div class="hud-cell" id="hud-e">
+              <span class="hl" data-i18n="model-section.span3">Variation &#8710;E&#8338;</span><span class="hv">&mdash;</span>
+            </div>
+            <div class="hud-cell" id="hud-k">
+              <span class="hl" data-i18n="model-section.span4">Complexity K</span><span class="hv">&mdash;</span>
+            </div>
+            <div class="hud-cell" id="hud-lam">
+              <span class="hl" data-i18n="model-section.span5">Growth rate &#955;</span><span class="hv">&mdash;</span>
+            </div>
+          </div>
+
+          <div class="model-controls">
+            <button type="button" class="btn" id="model-play" aria-pressed="true">Pause</button>
+            <button type="button" class="btn" id="model-reset" data-i18n="model-section.button1">Reset view</button>
+            <span class="spacer"></span>
+            <span class="law">&#955; = (3/2) r&#8315;&#8309;&#8260;&#8308;</span>
+          </div>
+        </div>
+
+        <p data-i18n="model-section.p4">
+          Two honest caveats about what you are looking at. The throat is
+          <strong>regularised</strong> at \(r_{\min} = 0.3\): a true \(r \to 0\)
+          funnel cannot be meshed, so \(\Delta E_z\) and \(\lambda\) stay finite on
+          screen where the model says they diverge. And the traversal is driven at
+          constant cycle rate rather than integrated from equation&nbsp;(14) — the
+          shape of the path is faithful, the timing is not. The real fall spends
+          almost all of \(t_c\) in the outer region and crosses the last decade of
+          radius almost instantly.
+        </p>
+        </div>
+      </section>
+
+      <!-- ───────────── 13 OPEN QUESTIONS ───────────── -->
+      <section id="open" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">13</span><span class="lbl" data-i18n="open.lbl1">Open questions</span></p>
+          <h2 data-i18n="open.h21">Where the model needs work</h2>
+        </header>
+        <div class="card-body">
+
+        <p data-i18n="open.p1">
+          This is the part I would ask you to remember. The model has a core I
+          still believe is worth something — complexity as fuel, and a well that
+          empties in finite time — surrounded by six problems of quite different
+          severity. Four of these I can repair. Two I cannot, at least not without
+          new physics, and I would rather say so plainly than leave them for
+          someone else to find.
+        </p>
+
+        <div class="caveats">
+
+          <div class="caveat">
+            <h4 data-i18n="open.h41">1 &middot; The free energy runs the wrong way</h4>
+            <p data-i18n="open.p2">
+              This is the serious one. In equation&nbsp;(19), \(U = 1/K\) decreases
+              in \(K\) and \(S = k_B \ln K\) increases in \(K\), so
+              \(F = U - TS\) is monotonically <em>decreasing</em>: the free energy is
+              minimised at \(K \to \infty\). The correct conclusion from
+              \(K_{\mathrm{eq}} = -1/k_B T < 0\) is that no interior stationary point
+              exists — but the flow it implies, equation&nbsp;(21), then drives the
+              system <em>outward</em>, toward maximum order, not inward toward the
+              collapse. The mechanics and the thermodynamics contradict each other.
+            </p>
+            <p data-i18n="open.p3">
+              I papered over this in the first write-up by putting \(\dot K > 0\) in
+              one place and \(\dot K < 0\) in another with the same right-hand side. That
+              is not a typo one can fix; the sign is determined. Either \(S(K)\) is
+              the wrong entropy functional, or \(K\) is not the right order parameter,
+              or the collapse is not free-energy driven at all and must be sustained
+              by an external flux the model does not include.
+            </p>
+            <p class="verdict" data-i18n="open.p4"><b>Status</b> &nbsp;Unresolved. Blocks the &ldquo;spontaneous phase transition&rdquo; reading.</p>
+          </div>
+
+          <div class="caveat">
+            <h4 data-i18n="open.h42">2 &middot; The return path is asserted</h4>
+            <p data-i18n="open.p5">
+              The cycle closes only because \(\eta(t)\) in equation&nbsp;(34) carries
+              the system through the throat. But at \(r = 0\) the velocity, the
+              potential, the entropy production and the growth rate have all
+              diverged; \(\eta(t)\) is being asked to act at precisely the point where
+              the description has broken down. Calling it &ldquo;quantum or stochastic
+              fluctuation&rdquo; names the gap without filling it.
+            </p>
+            <p class="verdict" data-i18n="open.p6"><b>Status</b> &nbsp;Unresolved. Requires a regularisation of the singularity.</p>
+          </div>
+
+          <div class="caveat">
+            <h4 data-i18n="open.h43">3 &middot; \(K = 1/\Delta E\) and \(K = 1/\Delta E_z\) are different laws</h4>
+            <p data-i18n="open.p7">
+              Equation&nbsp;(1) is stated for a generic energetic variation; every
+              calculation afterward uses the constructed vertical field
+              \(\Delta E_z = 3r^{-1/2}\). The substitution is never justified, and it
+              matters: the base-plane variations \(\Delta E_1, \Delta E_2\) go to zero
+              at the periphery while \(r \to \infty\), so &ldquo;\(\Delta E \to 0\)
+              implies \(K \to \infty\)&rdquo; and &ldquo;\(r \to \infty\) implies
+              \(K \to \infty\)&rdquo; are being used interchangeably when only the
+              second follows from (5).
+            </p>
+            <p class="verdict" data-i18n="open.p8"><b>Status</b> &nbsp;Repairable by stating (5) as a definition, which is what I have done.</p>
+          </div>
+
+          <div class="caveat">
+            <h4 data-i18n="open.h44">4 &middot; The Lyapunov coefficient was wrong</h4>
+            <p data-i18n="open.p9">
+              My first pass gave \(\delta\ddot r = \tfrac34 r^{-5/2}\delta r\) and hence
+              \(\lambda = (\sqrt{3}/2)\,r^{-5/4}\). But
+              \(V = -3r^{-1/2}\) gives \(V' = \tfrac32 r^{-3/2}\) and
+              \(V'' = -\tfrac94 r^{-5/2}\), so the coefficient is \(9/4\) and
+              \(\lambda = \tfrac32 r^{-5/4}\), as in equation&nbsp;(18). The scaling
+              exponent — the part that carries the physics — is unaffected.
+            </p>
+            <p class="verdict" data-i18n="open.p10"><b>Status</b> &nbsp;Corrected in place. Conclusion unchanged.</p>
+          </div>
+
+          <div class="caveat">
+            <h4 data-i18n="open.h45">5 &middot; The collapse time was off by a factor of three</h4>
+            <p data-i18n="open.p11">
+              I first reported \(t_c = \tfrac{4}{5\sqrt6} r_0^{5/4} \approx 0.327\,r_0^{5/4}\).
+              That is what you get by using the near-throat asymptote
+              \(\dot r \approx -\sqrt6\,r^{-1/4}\) over the <em>whole</em> path, but
+              that approximation fails badly near \(r_0\), where the true speed is
+              zero. Evaluating the integral exactly gives
+              \(t_c = \tfrac{3\pi}{4\sqrt6} r_0^{5/4} \approx 0.962\,r_0^{5/4}\) —
+              close to three times longer.
+            </p>
+            <p class="verdict" data-i18n="open.p12"><b>Status</b> &nbsp;Corrected in eq. (16). Finiteness, the load-bearing claim, holds either way.</p>
+          </div>
+
+          <div class="caveat">
+            <h4 data-i18n="open.h46">6 &middot; Divergence is not the same as chaos</h4>
+            <p data-i18n="open.p13">
+              A positive, diverging \(\lambda\) at a finite-time singularity shows
+              that nearby trajectories separate. It does not establish deterministic
+              chaos in the technical sense: there is no bounded invariant set here, no
+              recurrence, no mixing, no strange attractor — the trajectory simply
+              leaves the manifold in finite time and stops existing. Purely radial
+              collapse with \(\ell = 0\) is, in fact, perfectly integrable. Genuine
+              chaos would need the \(\ell \neq 0\) case of equation&nbsp;(12) together
+              with the stochastic throat crossing, and that system has not been
+              analysed.
+            </p>
+            <p class="verdict" data-i18n="open.p14"><b>Status</b> &nbsp;Overstated in my first pass. The weaker claim &mdash; sensitive dependence &mdash; is sound.</p>
+          </div>
+
+        </div>
+
+        <div class="disclaimer">
+          <p data-i18n="open.p15">
+            <strong>On the standing of this work.</strong> These notes set out an
+            unrefereed proposal of my own. Nothing in them has been peer reviewed, and
+            the framework should not be cited as established physics.
+            Equations (1)&ndash;(35) are internally consistent as presented here
+            <em>except</em> where items 1 and 2 above say otherwise.
+          </p>
+        </div>
+        </div>
+      </section>
+
+      <!-- ───────────── 14 REFERENCES ───────────── -->
+      <section id="refs" class="card">
+        <header class="card-head">
+          <p class="sec-meta"><span class="n">14</span><span class="lbl" data-i18n="refs.lbl1">References</span></p>
+          <h2 data-i18n="refs.h21">Where to read further</h2>
+        </header>
+        <div class="card-body">
+
+        <div class="refs">
+          <ol>
+            <li><span><a href="https://hydrogen.wsu.edu/2020/08/09/core-tenets-of-complex-system-evolution-from-thermodynamics/">Core Tenets of Complex System Evolution from Thermodynamics</a><span class="src">hydrogen.wsu.edu</span></span></li>
+            <li><span><a href="https://en.wikipedia.org/wiki/Thermodynamic_equations">Thermodynamic equations</a><span class="src">Wikipedia</span></span></li>
+            <li><span><a href="https://arxiv.org/html/0812.1683v1">Energy landscapes and their relation to thermodynamic phase transitions</a><span class="src">arXiv:0812.1683</span></span></li>
+            <li><span><a href="https://www.researchgate.net/publication/397633140_The_Information-Energy_Phase_Transition_Theory_A_Tiered_Framework_for_Lifes_Emergence_from_Simple_to_Complex_Replicators">The Information&ndash;Energy Phase Transition Theory: A Tiered Framework for Life&rsquo;s Emergence</a><span class="src">ResearchGate &middot; preprint</span></span></li>
+            <li><span><a href="https://www.mdpi.com/2218-1997/11/11/373">Chaos in 3D and 4D Thermodynamic Models</a><span class="src">Universe 11(11), 373</span></span></li>
+            <li><span><a href="https://www.researchgate.net/figure/The-3D-phase-portrait-for-to-chaos_fig6_230986234">The 3D phase portrait for the route to chaos</a><span class="src">ResearchGate &middot; figure</span></span></li>
+            <li><span><a href="https://pubchem.ncbi.nlm.nih.gov/periodic-table/ionization-energy">Ionization Energy &middot; Periodic Table of Elements</a><span class="src">PubChem</span></span></li>
+            <li><span><a href="https://www.reddit.com/r/askscience/comments/c0bb80/what_is_the_theory_that_the_complexity_of_a/">Discussion: is system complexity correlated to energy throughput?</a><span class="src">r/askscience</span></span></li>
+          </ol>
+        </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══════════════════ COLOPHON ══════════════════ -->
+  <footer class="colophon">
+    <div class="prof-card">
+      <img class="avatar" data-prof-photo src="assets/img/professor.svg"
+           data-i18n-alt="mast.alt-portrait" alt="Portrait of the lecturer" width="200" height="200">
+      <div>
+        <h2 data-prof-name>Prof. Peter Copf</h2>
+        <p class="affil" data-prof-affil>Author of the complexity&ndash;energy proposal</p>
+        <p data-i18n="colo.p1">
+          I proposed the reciprocal law \(K = 1/\Delta E\), its mapping onto a modified
+          Torricelli trumpet, and the argument that a system at rest breaks its own
+          symmetry by spending stored structure as work.
+        </p>
+        <p data-i18n="colo.p2">
+          These notes set the model out at full strength and carry the mathematics
+          through to the finite-time collapse. Where my derivations do not hold I have
+          said so and shown the working &mdash; all six points are listed by name in
+          <a href="#open">&sect;13</a>.
+        </p>
+        <p class="contact" data-prof-email></p>
+      </div>
+    </div>
+
+    <p class="colophon-meta" data-i18n="colo.p3">
+      The Complexity Collapse &nbsp;&middot;&nbsp; lecture notes on the proposed law \(K = 1/\Delta E\)<br>
+      Plates 1&ndash;3 accompanied the original formulation; Plates A&ndash;E were drawn for these notes from the equations as corrected.<br>
+      Mathematics set with MathJax. Live model rendered with three.js.
+    </p>
+  </footer>
+
+</div>
+
+<!-- BEGIN generated i18n dictionaries (Site/tools/make_dicts.py) -->
+<script type="application/json" id="i18n-it">{
+ "boundaries.caption1": "I due confini del campo di complessit&agrave;",
+ "boundaries.h21": "Due limiti, e un avvertimento su quale \\(\\Delta E\\) intendiamo",
+ "boundaries.lbl1": "I due confini del campo",
+ "boundaries.p1": "Combinando (1) e (3) si ottiene il campo di complessità sull’imbuto. Qui devo essere pedante, perché la mia prima stesura non lo era: l’equazione&nbsp;(1) è formulata per un \\(\\Delta E\\) generico, ma ogni calcolo successivo usa il campo <em>verticale<\/em> \\(\\Delta E_z\\). Sono oggetti diversi. Userò \\(\\Delta E_z\\) in tutto il seguito e segnalerò la sostituzione come un’ipotesi, non come una derivazione:",
+ "boundaries.p2": "La complessità cresce dunque come la radice quadrata del raggio. I due confini seguono immediatamente, e sono le affermazioni portanti dell’intero modello:",
+ "boundaries.p3": "La periferia è un regime a varianza nulla: spazialmente omogeneo (\\(\\nabla \\Delta E_z \\to 0\\)), ordinato al massimo e — questo è il punto — completamente immobile. L’origine è l’opposto sotto ogni aspetto. Tutto il contenuto del modello è il passaggio tra i due.",
+ "boundaries.td1": "asintoticamente piatta",
+ "boundaries.td2": "gola infinitamente profonda",
+ "boundaries.td3": "si annulla",
+ "boundaries.td4": "diverge",
+ "boundaries.td5": "ordine assoluto, quiete assoluta, massima densit&agrave; di informazione",
+ "boundaries.td6": "caos deterministico, collasso strutturale totale",
+ "boundaries.th1": "Grandezza",
+ "boundaries.th10": "Lettura fisica",
+ "boundaries.th2": "Periferia &nbsp;\\(r \\to \\infty\\)",
+ "boundaries.th3": "Singolarit&agrave; &nbsp;\\(r \\to 0^{+}\\)",
+ "boundaries.th4": "Variazione energetica \\(\\Delta E_z\\)",
+ "boundaries.th5": "Complessit&agrave; strutturale \\(K\\)",
+ "boundaries.th6": "Geometria della superficie",
+ "boundaries.th7": "Potenziale \\(V = -\\Delta E_z\\)",
+ "boundaries.th8": "Crescita delle perturbazioni \\(\\lambda\\)",
+ "boundaries.th9": "Produzione di entropia \\(\\dot S_{\\mathrm{tot}}\\)",
+ "collapse.h21": "Quanto dura la caduta",
+ "collapse.h31": "Perch&eacute; il collasso conta come caotico",
+ "collapse.lbl1": "Collasso in tempo finito",
+ "collapse.p1": "Poniamo \\(\\ell = 0\\). L’equazione del moto si riduce a",
+ "collapse.p2": "L’energia si conserva, dunque integrando una volta a partire dalla quiete in \\(r_0\\) si ottiene direttamente la velocità verso l’interno:",
+ "collapse.p3": "La velocità diverge — ma solo come \\(r^{-1/4}\\), abbastanza dolcemente perché l’integrale del tempo converga. Sostituendo \\(r = r_0 u\\) e valutando l’integrale Beta che ne risulta, \\(\\int_0^1 u^{1/4}(1-u^{1/2})^{-1/2}\\,\\mathrm{d}u = 2B(\\tfrac{5}{2},\\tfrac{1}{2}) = 3\\pi/4\\), si ottiene una forma chiusa:",
+ "collapse.p4": "Questo è il risultato più netto e più attraente del modello. Il collasso non è asintotico — <em>si compie<\/em>. Un sistema che parte da qualunque raggio finito raggiunge il collasso strutturale totale in un tempo finito, che scala come la potenza cinque quarti del punto di partenza. Nulla nell’impostazione lo garantiva; un imbuto poco più ripido avrebbe richiesto un tempo infinito.",
+ "collapse.p5": "Linearizziamo attorno alla traiettoria. Una piccola perturbazione radiale \\(\\delta r\\) obbedisce a \\(\\delta\\ddot r = -V''(r)\\,\\delta r\\), e poiché \\(V(r) = -3r^{-1/2}\\) si ha \\(V''(r) = -\\tfrac{9}{4}r^{-5/2}\\):",
+ "collapse.p6": "Il coefficiente è positivo, dunque le perturbazioni crescono invece di oscillare. Il tasso di crescita istantaneo è la sua radice quadrata:",
+ "collapse.p7": "Le traiettorie vicine si separano quindi sempre più rapidamente all’avvicinarsi della gola, e il tasso mediato sulla traiettoria \\(\\lambda_{\\max} = \\lim_{t \\to t_c} t^{-1}\\!\\int_0^t \\lambda\\,\\mathrm{d}\\tau\\) è strettamente positivo. Ciò stabilisce la dipendenza sensibile dalle condizioni iniziali. Voglio essere prudente su quanto questo ci compri, e ci torno nel <a href=\"#open\">&sect;13<\/a> — un tasso di crescita divergente in una singolarità a tempo finito non è la stessa cosa di un attrattore strano.",
+ "colo.p1": "Ho proposto la legge reciproca \\(K = 1/\\Delta E\\), la sua rappresentazione su una tromba di Torricelli modificata e l’argomento secondo cui un sistema in quiete rompe la propria simmetria spendendo come lavoro la struttura immagazzinata.",
+ "colo.p2": "Questi appunti espongono il modello in tutta la sua forza e portano la matematica fino al collasso in tempo finito. Dove le mie derivazioni non tengono l’ho detto e ho mostrato il procedimento &mdash; tutti e sei i punti sono elencati per nome nel <a href=\"#open\">&sect;13<\/a>.",
+ "colo.p3": "Il collasso della complessit&agrave; &nbsp;&middot;&nbsp; appunti di lezione sulla legge proposta \\(K = 1/\\Delta E\\)<br> Le Tavole 1&ndash;3 accompagnavano la formulazione originale; le Tavole A&ndash;E sono state disegnate per questi appunti a partire dalle equazioni corrette.<br> Matematica composta con MathJax. Modello dal vivo reso con three.js.",
+ "cycle.aria1": "Diagramma del ciclo. Quattro fasi scorrono da sinistra a destra: periferia, innesco, collasso, singolarità, unite da frecce etichettate lavoro interno, gradiente del potenziale e tempo finito t c. Un percorso di ritorno si richiude dalla singolarità alla periferia, etichettato dissipazione e ricristallizzazione e segnalato come affermato, non derivato.",
+ "cycle.figcaption1": "<b>Tavola D.<\/b> Il ciclo, con le quattro fasi derivate tracciate continue e il percorso di ritorno tratteggiato. Il tratteggio qui svolge un lavoro reale: segna l’unico tratto dell’anello che la matematica non fornisce.",
+ "cycle.h21": "Quattro fasi e un ritorno",
+ "cycle.h41": "La periferia &middot; ordine massimo",
+ "cycle.h42": "Innesco &middot; lavoro interno",
+ "cycle.h43": "Collasso &middot; accelerazione fuori equilibrio",
+ "cycle.h44": "Singolarit&agrave; &middot; caos deterministico",
+ "cycle.h45": "Ritorno &middot; ricristallizzazione",
+ "cycle.lbl1": "Il ciclo chiuso",
+ "cycle.p1": "Messo in ordine, il modello descrive un ciclo anziché un viaggio di sola andata. Ecco la sequenza, con lo stato del sistema a ogni passo.",
+ "cycle.p2": "Il sistema siede sul confine esterno piatto, con variazione energetica nulla e complessità illimitata. La produzione di entropia si annulla. È simmetrico, denso di informazione e completamente immobile.",
+ "cycle.p3": "Senza alcuna forza esterna disponibile, il sistema converte la complessità immagazzinata in lavoro, \\(W_{\\mathrm{int}} = -\\Delta K\\). Questo è il passo di rottura della simmetria: acquista il primo spostamento infinitesimo e abbassa l’energia libera quanto basta per vincere l’inerzia statica.",
+ "cycle.p4": "Catturato dal gradiente di \\(V(r) = -3r^{-1/2}\\), il sistema accelera verso l’interno. Il potenziale si converte in variazione cinetica, la complessità scende e la produzione di entropia diventa strettamente positiva — la dinamica si fa irreversibile.",
+ "cycle.p5": "In \\(r = 0\\), raggiunto dopo il tempo finito \\(t_c\\) dell’equazione&nbsp;(16), la complessità si annulla e la variazione energetica diverge. Le traiettorie vicine si separano senza limite. Questo è il capolinea del resoconto meccanico.",
+ "cycle.p6": "La chiusura proposta: dopo aver dissipato al massimo, l’energia si redistribuisce verso l’esterno, il sistema recupera struttura e la condizione periferica è ristabilita. È la fase meno solida del modello — è affermata anziché derivata, e il <a href=\"#hourglass\">&sect;11<\/a> è il tentativo di darle una geometria.",
+ "cycle.span1": "&#8710;K &lt; 0 &nbsp;&middot;&nbsp; W &gt; 0 &nbsp;&middot;&nbsp; primo moto",
+ "cycle.span2": "Q dissipato &nbsp;&middot;&nbsp; K &#8594; &#8734; &nbsp;&middot;&nbsp; il ciclo si chiude",
+ "cycle.span3": "Tavola D",
+ "cycle.span4": "Il ciclo come anello chiuso",
+ "cycle.svg1": "01 PERIFERIA",
+ "cycle.svg10": "affermato, non derivato &#8212; il percorso di ritorno &#232; l&#8217;anello pi&#249; debole del modello",
+ "cycle.svg11": "Le fasi 01&#8211;04 seguono dalle equazioni (5)&#8211;(18). La fase 05 richiede nuova fisica nella singolarit&#224;; il ritorno tratteggiato segna quella lacuna.",
+ "cycle.svg2": "Ordine massimo",
+ "cycle.svg3": "02 INNESCO",
+ "cycle.svg4": "Ordine speso",
+ "cycle.svg5": "03 COLLASSO",
+ "cycle.svg6": "Caduta irreversibile",
+ "cycle.svg7": "04 SINGOLARIT&#192;",
+ "cycle.svg8": "Caos",
+ "cycle.svg9": "05 &#183; DISSIPAZIONE &amp; RICRISTALLIZZAZIONE",
+ "entropy.h21": "Che cosa la caduta riversa nel bagno termico",
+ "entropy.lbl1": "Calore &amp; entropia",
+ "entropy.p1": "Mettiamo da parte il problema della direzione del moto e seguiamo il collasso meccanico. In termodinamica stocastica, il calore consegnato a un bagno a temperatura \\(T\\) è l’energia potenziale ceduta lungo il percorso:",
+ "entropy.p2": "Poiché \\(\\dot r < 0\\) durante il collasso, la (22) è positiva: il calore esce. L’entropia del sistema segue dalla forma di Boltzmann&ndash;Shannon sul campo di complessità, \\(S_{\\mathrm{sys}} = k_B \\ln K = k_B(\\tfrac12 \\ln r - \\ln 3)\\):",
+ "entropy.p3": "L’entropia propria del sistema <em>scende<\/em> mentre collassa — sta perdendo struttura, e \\(S_{\\mathrm{sys}}\\) segue \\(\\ln K\\). Quella del mezzo sale. Sommando e usando \\(|\\dot r| = -\\dot r\\):",
+ "entropy.p4": "Il secondo principio è soddisfatto e, vicino alla gola, il primo termine domina largamente — va come \\(r^{-3/2}\\) contro \\(r^{-1}\\) del secondo. Sostituendo la velocità asintotica (15):",
+ "entropy.p5": "Entrambe divergono per \\(r \\to 0^{+}\\), e lo fanno più rapidamente della velocità stessa. Il collasso è irreversibile nel senso più forte disponibile: produce entropia illimitata in un tempo limitato. Integrando la (26) rispetto a \\(\\mathrm{d}t = \\mathrm{d}r/|\\dot r|\\) si conferma che anche il calore dissipato totale diverge, il che ci dice che il bagno del modello va idealizzato come infinito:",
+ "geometry.alt1": "Diagramma concettuale di un imbuto luminoso sopra un piano di base. L’ampio bordo piatto è etichettato periferia, stato di massima complessità, con K che tende a infinito e delta E z che tende a zero. Una fila di sfere traccia un percorso lungo la parete dell’imbuto fino a un collasso centrale luminoso etichettato stato di caos, dove K tende a zero e delta E z diverge. I riquadri laterali riassumono quattro fasi: periferia, innesco, collasso, caos.",
+ "geometry.figcaption1": "<b>Tavola 1.<\/b> La geometria delle equazioni (3) e (4), con la &ldquo;linea della vita&rdquo; tracciata come traiettoria cronologica sul piano di base. Il bordo svasato è la regione asintoticamente piatta; il nucleo luminoso è la puntura in \\(r = 0\\). I quattro riquadri laterali anticipano le fasi che raggiungiamo nel <a href=\"#cycle\">&sect;10<\/a>.",
+ "geometry.h21": "Una buca costruita a partire dalla legge",
+ "geometry.lbl1": "Spazio degli stati &amp; geometria",
+ "geometry.p1": "Per avere una dinamica serve un luogo in cui il sistema possa vivere. Prendiamo come spazio degli stati di base delle variazioni energetiche il piano bucato \\(M = \\mathbb{R}^2 \\setminus \\{0\\}\\), con un punto scritto \\(q = (\\Delta E_1, \\Delta E_2)^{\\mathsf T}\\) — due canali indipendenti lungo i quali l’energia del sistema può variare. In coordinate polari:",
+ "geometry.p2": "L’origine è rimossa deliberatamente, e conviene tenerla d’occhio: è lì che l’intero modello andrà a morire. Su questa base innalziamo un campo scalare verticale \\(\\Delta E_z\\), la variazione energetica totale combinata, definito in modo che diverga al centro:",
+ "geometry.p3": "La potenza un quarto è la scelta interessante. Fa decadere \\(\\Delta E_z\\) lentamente verso l’esterno e divergere lentamente verso l’interno — abbastanza lentamente perché la superficie abbia area finita su ogni corona circolare, abbastanza ripidamente perché non abbia fondo. Questa è la <em>tromba di Torricelli modificata<\/em> della mia prima formulazione: un imbuto infinito. La costante \\(3\\) fissa soltanto la scala; nulla di quanto segue dipende dal fatto che sia tre.",
+ "geometry.p4": "Immergendo la superficie come \\((x,y,z) = (\\Delta E_1, \\Delta E_2, \\Delta E_z)\\) nello spazio euclideo e ritirando la metrica piatta si ottiene la metrica indotta. Con \\(\\mathrm{d}z/\\mathrm{d}r = -\\tfrac{3}{2}r^{-3/2}\\):",
+ "geometry.p5": "Notate il fattore di dilatazione radiale. Molto lontano, \\(9/4r^3 \\to 0\\) e la superficie è asintoticamente piatta — un piano. Vicino al centro diverge: la distanza radiale sulla superficie si allontana da quella nella base. La gola dell’imbuto è infinitamente profonda se misurata lungo la superficie, pur trovandosi sopra un singolo punto mancante del piano.",
+ "geometry.span1": "Tavola 1",
+ "geometry.span2": "Il modello concettuale, nel primo disegno",
+ "hourglass.aria1": "Sezione di un campo a forma di clessidra. Un imbuto superiore con ampio bordo tratteggiato si restringe verso una gola centrale luminosa; sotto, un imbuto inferiore speculare si riallarga fino a un secondo bordo. Una spirale bianca traccia il collasso dal bordo superiore nella gola; una spirale verde acqua traccia l’espansione attraverso l’imbuto inferiore. Le etichette segnano la periferia superiore con complessità massima e variazione energetica nulla, il lavoro interno che rompe l’equilibrio, la gola della singolarità con complessità nulla, variazione energetica divergente e tasso di crescita positivo, e il confine inferiore dove la complessità si rigenera.",
+ "hourglass.eq32": "$$ \\Delta E_z(r) \\;=\\; \\begin{cases} \\; +3\\,r^{-1/2}, & z > 0 \\quad \\text{(superiore: contrazione, regime di collasso)}\\\\[4pt] \\; -3\\,r^{-1/2}, & z < 0 \\quad \\text{(inferiore: espansione, regime di emergenza)} \\end{cases} $$",
+ "hourglass.figcaption1": "<b>Tavola E.<\/b> La clessidra delle equazioni (32)&ndash;(35), disegnata sul profilo reale \\(z = 3r^{-1/2}\\) anziché abbozzata, con le traiettorie proiettate sulla superficie così che la spirale corra sulla parete lontana dove deve. Entrambi i bordi sono tratteggiati perché entrambi sono all’infinito: il disegno li tronca a \\(r = 4\\), e la gola a \\(r = 0.09\\).",
+ "hourglass.h21": "Dare una geometria al percorso di ritorno",
+ "hourglass.lbl1": "La clessidra",
+ "hourglass.p1": "Se il ciclo deve chiudersi, l’imbuto non può semplicemente finire. La correzione proposta è rifletterlo: oltre la gola la varietà si allarga di nuovo in un secondo imbuto invertito, rendendo l’intero campo una clessidra — due falde unite da una strozzatura. Formalmente, \\(\\Delta E_z\\) diventa definito a tratti:",
+ "hourglass.p2": "La complessità è definita dal modulo, dunque è univoca su tutto il dominio verticale e si recupera in uscita esattamente come si era perduta in entrata:",
+ "hourglass.p3": "Alla dinamica serve un ingrediente in più. Una traiettoria deterministica che arriva in \\(r = 0\\) non ha modo di scegliere il ramo uscente — le equazioni sono esaurite nella gola. Si introduce quindi un termine stocastico \\(\\eta(t)\\) per traghettare il sistema oltre la strozzatura:",
+ "hourglass.p4": "Il fattore \\(\\operatorname{sgn}(z)\\) inverte la forza sotto la gola, così la falda inferiore respinge invece di attrarre, e il sistema torna verso \\(r \\to \\infty\\), dove \\(K \\to \\infty\\) di nuovo. Le fluttuazioni energetiche decadono nell’ambiente come calore \\(Q(t)\\); la struttura si riassembla; la condizione di confine esterna è ristabilita. L’anello si chiude.",
+ "hourglass.p5": "Devo dire chiaramente che \\(\\eta(t)\\) è il punto in cui la difficoltà è stata spostata, non rimossa. Svolge un lavoro indispensabile — senza di esso nulla attraversa — e il modello non dice che cosa sia. È il secondo punto del <a href=\"#open\">&sect;13<\/a>.",
+ "hourglass.span1": "Tavola E",
+ "hourglass.span2": "Il campo a clessidra, sezione",
+ "hourglass.svg1": "PERIFERIA SUPERIORE",
+ "hourglass.svg10": "Auto-assemblaggio, K &#8594; &#8734;",
+ "hourglass.svg11": "Calore Q ceduto verso l&#8217;esterno",
+ "hourglass.svg12": "Collasso verso l&#8217;interno",
+ "hourglass.svg13": "Dissipazione massima",
+ "hourglass.svg14": "Ricristallizzazione verso l&#8217;esterno",
+ "hourglass.svg2": "Complessit&#224; max K &#8594; &#8734;",
+ "hourglass.svg3": "Variazione &#8710;E&#8338; &#8594; 0",
+ "hourglass.svg4": "LAVORO INTERNO",
+ "hourglass.svg5": "W = &#8722;&#8710;K rompe",
+ "hourglass.svg6": "l&#8217;equilibrio statico",
+ "hourglass.svg7": "GOLA DELLA SINGOLARIT&#192;",
+ "hourglass.svg8": "attraversata solo da &#951;(t)",
+ "hourglass.svg9": "CONFINE INFERIORE",
+ "kinematics.alt1": "Diagramma di un imbuto nel paesaggio energetico con traiettorie arancioni che spiraleggiano da un ampio bordo fino a una singolarità centrale luminosa. Una grande equazione recita K uguale K zero diviso V efficace. I riquadri a destra trattano le definizioni del sistema, le coppie coniugate, la cinematica della transizione con i grafici della soglia di lavoro e del lavoro compiuto, e un’interpretazione termodinamica in cui l’esponente di Lyapunov passa da zero o negativo a strettamente positivo.",
+ "kinematics.figcaption1": "<b>Tavola 2.<\/b> La stessa buca, annotata con l’argomento del lavoro. La catena in basso a sinistra — la complessità diminuisce, si compie lavoro interno, il potenziale scende e l’energia cinetica sale, segue il caos — è lo scheletro causale delle equazioni (8)&ndash;(12). Notate che questa tavola scrive la legge nella forma alternativa \\(K = K_0/V_{\\mathrm{eff}}\\); è lo stesso reciproco con la costante di scala resa esplicita.",
+ "kinematics.h21": "Il sistema che si muove senza essere spinto",
+ "kinematics.lbl1": "Potenziale, lavoro, lagrangiana",
+ "kinematics.p1": "Prendiamo come energia potenziale il campo verticale stesso, con un segno tale che l’imbuto sia attrattivo:",
+ "kinematics.p2": "Questa è una buca senza fondo — meno profonda della gravità newtoniana a corto raggio, ma comunque illimitata verso il basso. Ora l’affermazione che dà carattere alla proposta. Alla periferia non c’è gradiente da discendere né agente esterno che fornisca una spinta. Che cosa rompe la simmetria?",
+ "kinematics.p3": "La risposta proposta è che il sistema spende la propria struttura. Ha accumulato un serbatoio illimitato di complessità e ne converte una porzione in lavoro. Qui l’ordine non è uno stato passivo — è combustibile. Questa è la parte che credo ancora valga la pena prendere sul serio, qualunque cosa accada all’aritmetica che le sta intorno.",
+ "kinematics.p4": "Scritto lungo una traiettoria \\(\\gamma(t)\\) che va da \\(r_0\\) verso l’interno fino a \\(r(t)\\), il lavoro interno è la complessità ceduta:",
+ "kinematics.p5": "Poiché il moto è verso l’interno, \\(r(t) < r_0\\) e \\(W_{\\mathrm{int}} > 0\\): il sistema compie lavoro positivo semplificandosi. Per una particella puntiforme di massa unitaria sulla superficie, la lagrangiana in proiezione piana è",
+ "kinematics.p6": "La coordinata angolare è ciclica, dunque il suo momento coniugato si conserva — il modello eredita gratis un momento angolare:",
+ "kinematics.p7": "Due termini in competizione: una barriera centrifuga che va come \\(r^{-3}\\) e un’attrazione che va come \\(r^{-3/2}\\). Per ogni \\(\\ell\\) non nullo la barriera vince quando \\(r \\to 0\\) e la particella non raggiunge mai il centro — orbita. Il collasso descritto dalla proposta richiede quindi \\(\\ell = 0\\): una caduta puramente radiale. È un vincolo reale, e vale la pena dirlo, perché le figure mostrano tutte una spirale.",
+ "kinematics.span1": "La mossa centrale",
+ "kinematics.span2": "Tavola 2",
+ "kinematics.span3": "Cinematica e dinamica della transizione",
+ "law.aria1": "Iperbole della complessità K rispetto alla variazione energetica delta E z. K scende ripidamente da valori molto grandi vicino a variazione nulla, passa per il punto in cui entrambe valgono uno e si appiattisce verso zero al crescere della variazione. La regione ad alto K è etichettata ordine, quella a basso K caos.",
+ "law.figcaption1": "<b>Tavola A.<\/b> L’equazione (1) tracciata. La curva è un’iperbole equilatera, quindi i due regimi non sono simmetrici in alcun senso utile: l’ordine è un territorio stretto e ripido, il caos uno ampio e piatto. L’unico punto di incrocio, dove \\(K = \\Delta E_z = 1\\), è il solo stato che sia il proprio reciproco — tutto il resto, nel modello, è in transito verso qualcosa.",
+ "law.h21": "La complessit&agrave; come reciproco",
+ "law.lbl1": "La legge fondamentale",
+ "law.p1": "Tutto l’edificio poggia su una sola affermazione. Sia \\(K\\) la <strong>complessità strutturale<\/strong> di un sistema e \\(\\Delta E\\) la sua <strong>variazione energetica<\/strong> interna — la dispersione, non il livello, della sua energia. La tesi è che le due grandezze siano reciproche:",
+ "law.p2": "Leggetela come un’affermazione sulla capacità informativa. Un sistema la cui energia fluttua appena è un sistema i cui microstati sono nettamente distinti: vi si può scrivere molto e si può contare di rileggerlo. Lasciate crescere le fluttuazioni e le distinzioni si confondono — la struttura si dissolve nel rumore. Nel limite di variazione nulla il sistema contiene struttura illimitata e non fa assolutamente nulla. Nel limite di variazione illimitata non contiene nulla.",
+ "law.p3": "Questa è l’intuizione, ed è rispettabile; ha parenti nella letteratura sulla fluttuazione&ndash;dissipazione e nella termodinamica del calcolo. Ciò che rende distintiva questa proposta è la scelta di trattare l’equazione&nbsp;(1) non come un’analogia ma come un’equazione di campo, per poi chiedersi quale geometria essa implichi.",
+ "law.span1": "Tavola A",
+ "law.span2": "La legge reciproca come curva",
+ "law.svg1": "variazione energetica &#8710;E&#8338;",
+ "law.svg2": "complessit&#224; K",
+ "law.svg3": "ORDINE &#183; K &#8594; &#8734;",
+ "law.svg4": "CAOS &#183; K &#8594; 0",
+ "law.svg5": "l&#8217;unico stato autoduale",
+ "mass.h21": "Sostituendo \\(\\Delta E = \\Delta m c^{2}\\)",
+ "mass.lbl1": "Equivalenza con la massa",
+ "mass.p1": "Una domanda naturale: se la variazione energetica guida tutto, e l’energia è massa, si può riscrivere il modello attorno alla varianza di massa? Sostituendo la relazione di Einstein nella (1):",
+ "mass.p2": "Con variazioni parziali di massa \\((\\Delta m_1, \\Delta m_2)\\) e coordinata radiale \\(r_m\\), la superficie del campo diventa",
+ "mass.p3": "I fattori \\(c^{2}\\) si cancellano esattamente — e quella cancellazione è tutto il risultato. Ogni equazione dinamica ritorna in forma identica; cambia soltanto l’etichetta sull’asse orizzontale, da &ldquo;varianza di energia&rdquo; a &ldquo;varianza di massa&rdquo;. La sostituzione è un cambio di unità, non nuova fisica. Vale la pena farla proprio perché chiude la questione: nulla di relativistico entra in gioco, e la comparsa di \\(c\\) nei passaggi intermedi è contabilità. (La prima volta mi sono portato dietro un \\(1/c^{2}\\) di troppo in questa espressione; deve cancellarsi, come sopra.)",
+ "mast.alt-portrait": "Ritratto del docente",
+ "mast.h11": "Il collasso della complessit&agrave;, ovvero <em>come l&rsquo;ordine spende se stesso per muoversi<\/em>",
+ "mast.lbl1": "La legge",
+ "mast.p1": "Una sola legge reciproca — la complessità è l’inverso della variazione energetica — descrive una buca senza fondo. Seguitela con attenzione e un sistema in quiete perfetta è costretto a consumare la propria struttura per cadere, e raggiunge il fondo in un tempo finito.",
+ "mast.span1": "Appunti di lezione",
+ "mast.span2": "Sistemi fuori equilibrio",
+ "mast.span3": "Documento di lavoro &middot; non sottoposto a revisione",
+ "meta.desc": "Una lezione sulla legge proposta K = 1/ΔE — come la complessità strutturale di un sistema, rappresentata su un imbuto infinito, compie il proprio lavoro e cade in un tempo finito nel caos deterministico.",
+ "meta.title": "Il collasso della complessità",
+ "model-section.button1": "Reimposta vista",
+ "model-section.h21": "Guardatelo cadere",
+ "model-section.lbl1": "Il modello in funzione",
+ "model-section.p1": "Le tavole statiche portano solo fino a un certo punto, con un sistema il cui contenuto è tutto un passaggio. Qui sotto la clessidra è resa dal vivo: il punto di stato attraversa l’imbuto superiore, accelera nella gola, la valica e si espande attraverso la falda inferiore. Trascinate per ruotare, rotella per lo zoom. Le letture sono calcolate dalle equazioni qui sopra, non recitate a copione.",
+ "model-section.p2": "Trascina per ruotare<br>Rotella per lo zoom",
+ "model-section.p3": "Vista 3D non disponibile in questo browser &mdash; vedere la Tavola E sopra per la sezione statica.",
+ "model-section.p4": "Due avvertenze oneste su ciò che state guardando. La gola è <strong>regolarizzata<\/strong> a \\(r_{\\min} = 0.3\\): un imbuto con \\(r \\to 0\\) autentico non è mappabile in mesh, dunque \\(\\Delta E_z\\) e \\(\\lambda\\) restano finiti sullo schermo dove il modello li vuole divergenti. E la traversata è guidata a velocità di ciclo costante anziché integrata dall’equazione&nbsp;(14) — la forma del percorso è fedele, il ritmo no. La caduta reale passa quasi tutto \\(t_c\\) nella regione esterna e attraversa l’ultima decade di raggio quasi istantaneamente.",
+ "model-section.span1": "Dominio di fase",
+ "model-section.span2": "Raggio r",
+ "model-section.span3": "Variazione &#8710;E&#8338;",
+ "model-section.span4": "Complessit&#224; K",
+ "model-section.span5": "Tasso di crescita &#955;",
+ "nav.01": "La derivazione",
+ "nav.02": "La proposta",
+ "nav.03": "La legge fondamentale",
+ "nav.04": "Spazio degli stati &amp; geometria",
+ "nav.05": "I due confini del campo",
+ "nav.06": "Potenziale, lavoro, lagrangiana",
+ "nav.07": "Collasso in tempo finito",
+ "nav.08": "Fuori equilibrio",
+ "nav.09": "Calore &amp; entropia",
+ "nav.10": "Equivalenza con la massa",
+ "nav.11": "Un senso della scala",
+ "nav.12": "Il ciclo chiuso",
+ "nav.13": "La clessidra",
+ "nav.14": "Il modello in funzione",
+ "nav.15": "Questioni aperte",
+ "nav.16": "Riferimenti",
+ "nav.17": "Indice della lezione",
+ "open.h21": "Dove il modello ha bisogno di lavoro",
+ "open.h41": "1 &middot; L&rsquo;energia libera va nella direzione sbagliata",
+ "open.h42": "2 &middot; Il percorso di ritorno &egrave; affermato, non dimostrato",
+ "open.h43": "3 &middot; \\(K = 1/\\Delta E\\) e \\(K = 1/\\Delta E_z\\) sono leggi diverse",
+ "open.h44": " 4 &middot; Il coefficiente di Lyapunov era sbagliato",
+ "open.h45": "5 &middot; Il tempo di collasso era sbagliato di un fattore tre",
+ "open.h46": "6 &middot; Divergenza non &egrave; sinonimo di caos",
+ "open.lbl1": "Questioni aperte",
+ "open.p1": "Questa è la parte che vi chiederei di ricordare. Il modello ha un nucleo che credo ancora valga qualcosa — la complessità come combustibile e una buca che si svuota in un tempo finito — circondato da sei problemi di gravità molto diversa. Quattro li so riparare. Due no, almeno non senza nuova fisica, e preferisco dirlo chiaramente piuttosto che lasciarli trovare a qualcun altro.",
+ "open.p10": "<b>Stato<\/b> &nbsp;Corretto sul posto. Conclusione invariata.",
+ "open.p11": "All’inizio avevo riportato \\(t_c = \\tfrac{4}{5\\sqrt6} r_0^{5/4} \\approx 0.327\\,r_0^{5/4}\\). È quello che si ottiene usando l’asintoto vicino alla gola \\(\\dot r \\approx -\\sqrt6\\,r^{-1/4}\\) su <em>tutto<\/em> il percorso, ma quell’approssimazione cade rovinosamente vicino a \\(r_0\\), dove la velocità vera è nulla. Valutando l’integrale in modo esatto si ottiene \\(t_c = \\tfrac{3\\pi}{4\\sqrt6} r_0^{5/4} \\approx 0.962\\,r_0^{5/4}\\) — quasi tre volte più lungo.",
+ "open.p12": "<b>Stato<\/b> &nbsp;Corretto nell&rsquo;eq. (16). La finitezza, che &egrave; l&rsquo;affermazione portante, vale in entrambi i casi.",
+ "open.p13": "Un \\(\\lambda\\) positivo e divergente in una singolarità a tempo finito mostra che le traiettorie vicine si separano. Non stabilisce il caos deterministico in senso tecnico: qui non c’è alcun insieme invariante limitato, nessuna ricorrenza, nessun mescolamento, nessun attrattore strano — la traiettoria lascia semplicemente la varietà in un tempo finito e cessa di esistere. Il collasso puramente radiale con \\(\\ell = 0\\) è, di fatto, perfettamente integrabile. Il caos autentico richiederebbe il caso \\(\\ell \\neq 0\\) dell’equazione&nbsp;(12) insieme all’attraversamento stocastico della gola, e quel sistema non è stato analizzato.",
+ "open.p14": "<b>Stato<\/b> &nbsp;Sopravvalutato nella mia prima stesura. L&rsquo;affermazione pi&ugrave; debole &mdash; la dipendenza sensibile &mdash; regge.",
+ "open.p15": "<strong>Sullo stato di questo lavoro.<\/strong> Questi appunti espongono una proposta mia, non sottoposta a revisione. Nulla di quanto contengono è stato valutato da pari, e il quadro non va citato come fisica consolidata. Le equazioni (1)&ndash;(35) sono internamente coerenti come qui presentate <em>tranne<\/em> dove i punti 1 e 2 sopra dicono il contrario.",
+ "open.p2": "Questo è quello grave. Nell’equazione&nbsp;(19), \\(U = 1/K\\) decresce in \\(K\\) e \\(S = k_B \\ln K\\) cresce in \\(K\\), dunque \\(F = U - TS\\) è monotonamente <em>decrescente<\/em>: l’energia libera è minima per \\(K \\to \\infty\\). La conclusione corretta da \\(K_{\\mathrm{eq}} = -1/k_B T < 0\\) è che non esiste alcun punto stazionario interno — ma il flusso che ne segue, l’equazione&nbsp;(21), spinge allora il sistema <em>verso l’esterno<\/em>, verso il massimo ordine, non verso l’interno in direzione del collasso. Meccanica e termodinamica si contraddicono.",
+ "open.p3": "Nella prima stesura ho aggirato la cosa scrivendo \\(\\dot K > 0\\) in un punto e \\(\\dot K < 0\\) in un altro con lo stesso membro di destra. Non è un errore di battitura rimediabile: il segno è determinato. O \\(S(K)\\) è il funzionale di entropia sbagliato, o \\(K\\) non è il parametro d’ordine giusto, oppure il collasso non è guidato dall’energia libera e deve essere sostenuto da un flusso esterno che il modello non include.",
+ "open.p4": "<b>Stato<\/b> &nbsp;Irrisolto. Blocca la lettura come &ldquo;transizione di fase spontanea&rdquo;.",
+ "open.p5": "Il ciclo si chiude solo perché \\(\\eta(t)\\) nell’equazione&nbsp;(34) traghetta il sistema attraverso la gola. Ma in \\(r = 0\\) la velocità, il potenziale, la produzione di entropia e il tasso di crescita sono tutti divergenti; a \\(\\eta(t)\\) si chiede di agire esattamente nel punto in cui la descrizione ha ceduto. Chiamarlo &ldquo;fluttuazione quantistica o stocastica&rdquo; dà un nome alla lacuna senza colmarla.",
+ "open.p6": "<b>Stato<\/b> &nbsp;Irrisolto. Richiede una regolarizzazione della singolarit&agrave;.",
+ "open.p7": "L’equazione&nbsp;(1) è formulata per una variazione energetica generica; ogni calcolo successivo usa il campo verticale costruito \\(\\Delta E_z = 3r^{-1/2}\\). La sostituzione non è mai giustificata, e conta: le variazioni sul piano di base \\(\\Delta E_1, \\Delta E_2\\) tendono a zero alla periferia mentre \\(r \\to \\infty\\), dunque &ldquo;\\(\\Delta E \\to 0\\) implica \\(K \\to \\infty\\)&rdquo; e &ldquo;\\(r \\to \\infty\\) implica \\(K \\to \\infty\\)&rdquo; vengono usate in modo interscambiabile quando solo la seconda segue dalla (5).",
+ "open.p8": "<b>Stato<\/b> &nbsp;Riparabile enunciando la (5) come definizione, che &egrave; ci&ograve; che ho fatto.",
+ "open.p9": "La mia prima stesura dava \\(\\delta\\ddot r = \\tfrac34 r^{-5/2}\\delta r\\) e quindi \\(\\lambda = (\\sqrt{3}/2)\\,r^{-5/4}\\). Ma \\(V = -3r^{-1/2}\\) dà \\(V' = \\tfrac32 r^{-3/2}\\) e \\(V'' = -\\tfrac94 r^{-5/2}\\), dunque il coefficiente è \\(9/4\\) e \\(\\lambda = \\tfrac32 r^{-5/4}\\), come nell’equazione&nbsp;(18). L’esponente di scala — la parte che porta la fisica — non ne è toccato.",
+ "prologue.h21": "La proposta, nelle sue stesse parole",
+ "prologue.lbl1": "Prologo",
+ "prologue.p1": "Tutto è nato da una singola frase che ho scritto sulla complessità e sull’energia. Non mi aspettavo che portasse da nessuna parte in particolare. Seguitela con attenzione, però, e finisce in un imbuto infinito senza fondo, in un sistema che si muove senza essere spinto e in un collasso che si compie in un tempo finito. Parte di tutto questo, come ho poi scoperto, è sbagliata — il che è assai più utile che essere vagamente nel giusto.",
+ "prologue.p2": "In questi appunti voglio fare due cose. Primo: costruire il modello per bene — spazio degli stati, metrica, potenziale, equazioni del moto, termodinamica, tutto quanto. Secondo — ed è la parte che conta — mostrarvi esattamente dove tiene ed esattamente dove cede, comprese le occasioni in cui la mia stessa aritmetica mi ha tradito. Un modello che esce indenne dalla propria derivazione di solito significa che nessuno ha spinto abbastanza.",
+ "prologue.p3": "&ldquo;&hellip;un quadro concettuale e matematico inedito sul comportamento termodinamico dei sistemi complessi auto-organizzanti e sull’origine della vita. Il nostro modello descrive la transizione strutturale di un sistema portatore di vita da uno stato di ordine assoluto e massima complessità a un regime caotico e divergente.&rdquo;",
+ "prologue.p4": "L’affermazione di fondo è che la complessità è inversamente proporzionale alla variazione energetica; che ciò si può rappresentare come una tromba di Torricelli modificata; e che l’uscita dalla quiete non è alimentata da alcuna forza esterna, ma dalla complessità accumulata che compie lavoro su se stessa. La vita, in questa lettura, è una transizione di fase fuori equilibrio che il sistema accende attingendo al proprio ordine immagazzinato.",
+ "prologue.p5": "Quello che segue non è la stesura originale, ma il modello ricostruito per bene, con la matematica portata fino in fondo. Dove la mia aritmetica ha vacillato ho corretto sul posto e registrato la correzione nel <a href=\"#open\">&sect;13<\/a>, perché una derivazione che non si può verificare non è una derivazione. Preferisco consegnarvi il procedimento anziché la conclusione.",
+ "prologue.span1": "Come l&rsquo;ho scritta la prima volta",
+ "prologue.span2": "Proposta di fisica teorica",
+ "prologue.span3": "Una parola prima di cominciare",
+ "refs.h21": "Dove approfondire",
+ "refs.lbl1": "Riferimenti",
+ "scale.aria1": "Grafico a punti di sei energie molecolari su un asse logaritmico da 1 a 2000 kilojoule per mole. Moto termico a 2,5, legame a idrogeno nell’acqua mostrato come intervallo da 20 a 23 ed evidenziato, calore latente di vaporizzazione a 40,65, legame covalente ossigeno-idrogeno a 460, prima ionizzazione del carbonio a 1086,5 e prima ionizzazione dell’idrogeno a 1312.",
+ "scale.aria2": "Tre molecole d’acqua. Ciascuna ha un atomo di ossigeno rosso contrassegnato delta meno, unito da spessi legami covalenti grigi a due atomi di idrogeno azzurri contrassegnati delta più. Due linee ciano tratteggiate vanno dagli idrogeni delle molecole superiori all’ossigeno di quella inferiore; sono etichettate come legami a idrogeno da 20 a 23 kilojoule per mole, contro i legami covalenti a circa 460.",
+ "scale.figcaption1": "<b>Tavola C.<\/b> Sei energie che coprono quasi tre decadi, collocate per posizione su un asse logaritmico (i segni sono posizionati, non dimensionati, così la scala logaritmica resta onesta). Il legame a idrogeno è evidenziato perché è il caso interessante: abbastanza forte da tenere insieme la struttura, abbastanza debole perché il rumore termico la smonti continuamente. Qualunque candidato per \\(\\Delta E\\) in un contesto chimico deve stare in questa fascia.",
+ "scale.figcaption2": "<b>Tavola 3.<\/b> Il legame a idrogeno, per orientarsi. I collegamenti grigi sono covalenti e costano circa \\(460\\ \\mathrm{kJ\\,mol^{-1}}\\); quelli tratteggiati sono i legami a idrogeno, a \\(20\\)&ndash;\\(23\\). Tutto il carattere dell’acqua — la sua capacità termica di \\(4.184\\ \\mathrm{J\\,g^{-1}\\,{}^\\circ C^{-1}}\\), il suo calore latente, la sua liquidità alle temperature abitabili — viene da quel fattore venti.",
+ "scale.h21": "Intermezzo: quanto vale \\(\\Delta E\\) in unit&agrave; reali",
+ "scale.lbl1": "Un senso della scala",
+ "scale.p1": "Fin qui abbiamo trattato \\(\\Delta E\\) come una grandezza astratta con una comoda costante pari a 3. Prima di procedere conviene ancorarla, perché se questo quadro deve mai dire qualcosa sulla chimica prebiotica — che è l’ambizione dietro la proposta — allora \\(\\Delta E\\) deve essere commensurabile con le energie che le molecole reali scambiano davvero.",
+ "scale.p2": "L’intervallo in gioco è notevole. L’agitazione termica a temperatura ambiente vale circa \\(2.5\\ \\mathrm{kJ\\,mol^{-1}}\\). Rompere un legame a idrogeno fra molecole d’acqua costa in media \\(20\\)&ndash;\\(23\\ \\mathrm{kJ\\,mol^{-1}}\\), dunque i legami a idrogeno stanno solo circa otto volte sopra la soglia di rumore — ed è esattamente per questo che si rompono e si riformano su scale di picosecondi, e perché l’acqua liquida si comporta come si comporta. Strappare un elettrone a un atomo di idrogeno costa \\(1312\\ \\mathrm{kJ\\,mol^{-1}}\\), cinquecento volte tanto.",
+ "scale.p3": "Valori a 298 K salvo diversa indicazione; calore latente riferito a 100 &deg;C.",
+ "scale.p4": "Il valore di ionizzazione dell’idrogeno si ricava anche dal modello di Bohr, utile verifica sulle unità: con \\(E_n = -13.6\\,\\mathrm{eV}/n^{2}\\), lo stato fondamentale sta a \\(-13.6\\ \\mathrm{eV}\\) e l’energia per portare l’elettrone all’infinito è \\(\\Delta E = E_\\infty - E_1 = 13.6\\ \\mathrm{eV}\\). Gli \\(11.26\\ \\mathrm{eV}\\) del carbonio sono inferiori ai \\(14.53\\) dell’azoto e superiori agli \\(8.30\\) del boro, seguendo la carica nucleare efficace lungo il secondo periodo.",
+ "scale.span1": "Tavola C",
+ "scale.span2": "Energie molecolari, scala logaritmica",
+ "scale.span3": "Tavola 3",
+ "scale.span4": "Il legame in questione",
+ "scale.summary1": "Vista in tabella",
+ "scale.svg1": "Moto termico &#183; k&#8331;T (298 K)",
+ "scale.svg10": "Legame covalente O-H: circa 460 kJ/mol",
+ "scale.svg11": "Prima ionizzazione del carbonio: 1086,5 kJ/mol",
+ "scale.svg12": "Prima ionizzazione dell&#8217;idrogeno: 1312 kJ/mol",
+ "scale.svg13": "energia per mole &#183; kJ mol&#8315;&#185; &#183; logaritmica",
+ "scale.svg14": "la soglia di rumore",
+ "scale.svg15": "&#8776; 8&#215; la soglia di rumore",
+ "scale.svg16": "Legame covalente",
+ "scale.svg17": "&#8776; 460 kJ mol&#8315;&#185;",
+ "scale.svg18": "Legame a idrogeno",
+ "scale.svg19": "20&#8211;23 kJ mol&#8315;&#185;",
+ "scale.svg2": "Legame a idrogeno nell&#8217;acqua",
+ "scale.svg3": "Vaporizzazione dell&#8217;acqua &#183; calore latente",
+ "scale.svg4": "Legame covalente O&#8211;H",
+ "scale.svg5": "Carbonio &#183; prima ionizzazione",
+ "scale.svg6": "Idrogeno &#183; prima ionizzazione",
+ "scale.svg7": "Moto termico: 2,5 kJ/mol",
+ "scale.svg8": "Legame a idrogeno nell&#8217;acqua: da 20 a 23 kJ/mol",
+ "scale.svg9": "Calore latente di vaporizzazione: 40,65 kJ/mol",
+ "scale.td1": "si rompe e si riforma su ~10&#8315;&#185;&#178; s",
+ "scale.td2": "~20&#215; un legame a idrogeno",
+ "scale.td3": "da un orbitale 2p, [He]2s&#178;2p&#178;",
+ "scale.td4": "2,18&#215;10&#8315;&#185;&#8312; J per atomo",
+ "scale.th1": "Interazione",
+ "scale.th2": "Nota",
+ "scale.th3": "Moto termico, \\(k_B T\\)",
+ "scale.th4": "Legame a idrogeno nell&rsquo;acqua",
+ "scale.th5": "Calore latente di vaporizzazione",
+ "scale.th6": "Legame covalente O&ndash;H",
+ "scale.th7": "Carbonio, prima ionizzazione",
+ "scale.th8": "Idrogeno, prima ionizzazione",
+ "thermo.aria1": "Diagramma della transizione di fase. Un riquadro a sinistra etichettato periferia contiene complessità massima, variazione energetica nulla, simmetria statica e tasso di crescita nullo. Una freccia etichettata lavoro interno W uguale meno delta K attraversa verso un riquadro a destra etichettato collasso centrale, che contiene complessità nulla, variazione energetica divergente, caos deterministico e un tasso di crescita strettamente positivo. Una nota in basso registra che la meccanica e l’energia libera sono in disaccordo sulla direzione del moto.",
+ "thermo.figcaption1": "<b>Tavola B.<\/b> La transizione che il modello si propone di descrivere, con la contraddizione registrata anziché nascosta. Il resoconto meccanico e quello termodinamico dello stesso passaggio sono attualmente in disaccordo su quale direzione prenda il sistema.",
+ "thermo.h21": "Un&rsquo;energia libera che non ha dove posarsi",
+ "thermo.lbl1": "Fuori equilibrio",
+ "thermo.p1": "Passiamo alla termodinamica. Trattiamo \\(K\\) come parametro d’ordine, prendiamo come energia interna il campo verticale \\(U(K) = \\Delta E_z = 1/K\\) e assegniamo un’entropia configurazionale \\(S(K) = k_B \\ln K\\) — più struttura, più configurazioni accessibili. L’energia libera di non equilibrio è allora",
+ "thermo.p2": "Cerchiamo un punto stazionario:",
+ "thermo.p3": "Poiché \\(K_{\\mathrm{eq}} < 0\\) per ogni temperatura fisica \\(T > 0\\), <strong>non esiste alcun punto stazionario nel dominio fisico<\/strong> \\(K > 0\\). Il sistema non ha un equilibrio in cui posarsi. Rilassando per flusso di gradiente con mobilità \\(\\Gamma > 0\\):",
+ "thermo.p4": "Ed è qui che devo fermarmi ed essere onesto con voi, perché l’equazione&nbsp;(21) non dice ciò che la proposta vorrebbe le facesse dire. Entrambi i termini sono positivi, dunque \\(\\dot K > 0\\) ovunque: il flusso di gradiente spinge la complessità <em>verso l’alto<\/em>, verso la periferia, non verso il basso in direzione della gola. L’energia libera della (19) è monotonamente decrescente in \\(K\\), il che significa che <em>favorisce<\/em> il massimo ordine. La termodinamica, così come è scritta, spinge il sistema esattamente nella direzione opposta a quella della meccanica del <a href=\"#collapse\">&sect;5<\/a>. Non è un errore di arrotondamento: è un problema strutturale, ed è il primo punto del <a href=\"#open\">&sect;13<\/a>.",
+ "thermo.span1": "Tavola B",
+ "thermo.span2": "La transizione, dall&rsquo;inizio alla fine",
+ "thermo.svg1": "PERIFERIA &#183; r &#8594; &#8734;",
+ "thermo.svg2": "Complessit&#224; massima",
+ "thermo.svg3": "Simmetria statica, in quiete",
+ "thermo.svg4": "ordine speso come lavoro",
+ "thermo.svg5": "COLLASSO &#183; r &#8594; 0",
+ "thermo.svg6": "Complessit&#224; nulla",
+ "thermo.svg7": "Caos deterministico",
+ "thermo.svg8": "Irrisolto: la meccanica dell&#8217;eq. (13) va da sinistra a destra, ma il flusso di gradiente dell&#8217;eq. (21) va da destra a sinistra.",
+ "ui.affiliation": "Autore della proposta complessit&agrave;&ndash;energia",
+ "ui.correspondence": "Corrispondenza",
+ "ui.langNav": "Lingua",
+ "ui.pause": "Pausa",
+ "ui.phaseLower": "Espansione inferiore",
+ "ui.phaseThroat": "Gola &middot; caos",
+ "ui.phaseUpper": "Collasso superiore",
+ "ui.play": "Riproduci",
+ "ui.skip": "Vai alla lezione",
+ "ui.transNote": "Tradotto dall&rsquo;inglese &middot; traduzione in revisione"
+}</script>
+<!-- END generated i18n dictionaries -->
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="assets/js/hourglass.js"></script>
+</body>
+</html>
